@@ -1,0 +1,38 @@
+<head>
+    <style>
+        body {
+        background: linear-gradient(-45deg, #bbf0e5, rgb(196, 226, 238), rgb(176, 231, 231), rgb(97, 130, 226), rgb(176, 231, 231));
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+        height: 100vh;
+    }
+
+@keyframes gradient {
+0% {
+    background-position: 0% 50%;
+}
+50% {
+    background-position: 100% 50%;
+}
+100% {
+    background-position: 0% 50%;
+}
+}
+    </style>
+</head>
+<body>
+
+<h2>Login Page To Minesweeper</h2>
+
+<form action="/_posts/2022-10-23-mine.md">
+<label for="user">Username / Nombre de Usario:</label><br>
+<input type="text" id="user" name="user" value="Username"><br>
+<label for="pass">Password / Clave:</label><br>
+<input type="text" id="pass" name="pass" value="insert password"><br>
+<input type="submit" name = "submit "value = "SUBMIT/ENVIAR">
+</form>
+<p>Password must be 8 characters with at least two special symbols.</p>
+
+</body>
+</html>
+
