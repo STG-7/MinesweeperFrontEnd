@@ -57,7 +57,7 @@ title: Minesweeper FrontEnd
         // make a query to frost.nighthawkcodescrums.gq/api/auth/<usr>/<pwd>/verify
         // If the returned statement is "true", hide the login and registration, and display high score and game board
         // if false, clear form, and send an alert to the user
-        alert(input)
+        alert(auth_url)
     }
     function registration(){
         let usr = document.getElementById("rg_usr").value;
