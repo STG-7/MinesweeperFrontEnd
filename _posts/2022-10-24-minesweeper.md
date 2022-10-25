@@ -30,7 +30,7 @@ title: Minesweeper FrontEnd
 </head>
 <!--code for the login and registration forms that take username and password.-->
 <body>
-<section id="login">
+<section id="login" style="display:block;">
 <!-- Login form for Minesweeper game, set display to false after successful login-->
     <h2>Login</h2>
     <form action = "user_auth.py" method="POST">
@@ -42,7 +42,7 @@ title: Minesweeper FrontEnd
     </form>
 </section>
 
-<section id="Register">
+<section id="Register" style="display:block;">
 <!-- Registration form for Minesweeper game, set display to false after successful login-->
     <h2>Register</h2>
     <form method="POST">
@@ -53,16 +53,10 @@ title: Minesweeper FrontEnd
     <input type="submit" name ="submit" value = "SUBMIT/ENVIAR">
     </form>
 </section>
-<<<<<<< HEAD:_posts/2022-10-24-min.md
-<!-- script for authentications, add minesweeper functions below when possible-->
-<script>
-
-=======
 <!--work in progress code for communicaton between frontend and backend.-->
 <script>
     const username = "user"
     const password = "pass"
->>>>>>> 78a956198293ac431ffba12c5022a69cd937c624:_posts/2022-10-24-minesweeper.md
     const url = "frost.nighthawkcodescrums.gq/api/auth"
     const options = {
         method: 'GET',
@@ -73,9 +67,6 @@ title: Minesweeper FrontEnd
             'Content-Type': 'application/json'
             }
         };
-<<<<<<< HEAD:_posts/2022-10-24-min.md
-    var usr, pwd;
-=======
     const put_options = {...options, method: 'PUT'};
     function reaction(type, put_url, elemID) {
         fetch('frost.nighthawkcodescrums.gq/api/auth')
@@ -86,7 +77,6 @@ title: Minesweeper FrontEnd
         response.json().then(data => {
         document.getElementById(_GetPWD)
         })
->>>>>>> 78a956198293ac431ffba12c5022a69cd937c624:_posts/2022-10-24-minesweeper.md
 </script>
 
 </body>
