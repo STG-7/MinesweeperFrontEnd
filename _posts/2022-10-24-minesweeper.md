@@ -6,7 +6,7 @@ categories: [markdown]
 title: Minesweeper FrontEnd
 ---
 
-<!--bakground styling-->
+<!--background styling-->
 <head>
     <style>
         body {
