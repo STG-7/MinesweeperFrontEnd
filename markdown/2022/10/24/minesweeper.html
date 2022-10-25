@@ -10,15 +10,15 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Front end for minesweeper!" />
 <meta property="og:description" content="Front end for minesweeper!" />
-<link rel="canonical" href="https://stg-7.github.io/MinesweeperFrontEnd/markdown/2022/10/23/mine.html" />
-<meta property="og:url" content="https://stg-7.github.io/MinesweeperFrontEnd/markdown/2022/10/23/mine.html" />
+<link rel="canonical" href="https://stg-7.github.io/MinesweeperFrontEnd/markdown/2022/10/24/minesweeper.html" />
+<meta property="og:url" content="https://stg-7.github.io/MinesweeperFrontEnd/markdown/2022/10/24/minesweeper.html" />
 <meta property="og:site_name" content="Minesweeper" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-10-23T00:00:00-05:00" />
+<meta property="article:published_time" content="2022-10-24T00:00:00-05:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Minesweeper FrontEnd" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-10-23T00:00:00-05:00","datePublished":"2022-10-23T00:00:00-05:00","description":"Front end for minesweeper!","headline":"Minesweeper FrontEnd","mainEntityOfPage":{"@type":"WebPage","@id":"https://stg-7.github.io/MinesweeperFrontEnd/markdown/2022/10/23/mine.html"},"url":"https://stg-7.github.io/MinesweeperFrontEnd/markdown/2022/10/23/mine.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-10-24T00:00:00-05:00","datePublished":"2022-10-24T00:00:00-05:00","description":"Front end for minesweeper!","headline":"Minesweeper FrontEnd","mainEntityOfPage":{"@type":"WebPage","@id":"https://stg-7.github.io/MinesweeperFrontEnd/markdown/2022/10/24/minesweeper.html"},"url":"https://stg-7.github.io/MinesweeperFrontEnd/markdown/2022/10/24/minesweeper.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/MinesweeperFrontEnd/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://stg-7.github.io/MinesweeperFrontEnd/feed.xml" title="Minesweeper" /><link rel="shortcut icon" type="image/x-icon" href="/MinesweeperFrontEnd/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -73,8 +73,8 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Minesweeper FrontEnd</h1><p class="page-description">Front end for minesweeper!</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-10-23T00:00:00-05:00" itemprop="datePublished">
-        Oct 23, 2022
+    <h1 class="post-title p-name" itemprop="name headline">Minesweeper FrontEnd</h1><p class="page-description">Front end for minesweeper!</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-10-24T00:00:00-05:00" itemprop="datePublished">
+        Oct 24, 2022
       </time>
        • <span class="read-time" title="Estimated read time">
     
@@ -96,54 +96,86 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul id="toc" class="section-nav">
-</ul><script>
+<li class="toc-entry toc-h2"><a href="#login">Login</a></li>
+<li class="toc-entry toc-h2"><a href="#register">Register</a></li>
+</ul><body>
+<!--bakground styling-->
 
-//Preparing authenticator API fetchign
-const url = "https://frost.nighthawkcodescrums.gq/api/auth";
-const username = url + "/usr/"; 
-const password = url + "/pwd/";
-const score = url + "/score/";
+    <style>
+        body {
+            background: linear-gradient(-45deg, #bbf0e5, rgb(196, 226, 238), rgb(176, 231, 231), rgb(97, 130, 226), rgb(176, 231, 231));
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            height: 100vh;
+        }
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
 
-//
-const options = {
-  method: 'GET',
-  mode: 'cors',
-  cache: 'default', 
-  credentials: 'omit', 
-  headers: {
-    'Content-Type': 'application/json'
-  },
-};
+<!--code for the login and registration forms that take username and password.-->
 
-const put_options = {...options, method: 'PUT'};
+<section id="login">
+    <h2>
+<a class="anchor" href="#login" aria-hidden="true"><span class="octicon octicon-link"></span></a>Login</h2>
+    <form action="user_auth.py" method="POST">
+    <label for="user">Username / Nombre de Usario:</label><br>
+    <input type="text" id="user" name="user" value=""><br>
+    <label for="pass">Password / Clave:</label><br>
+    <input type="text" id="pass" name="pass" value=""><br>
+    <input type="submit" name="submit" value="SUBMIT/ENVIAR">
+    </form>
+</section>
 
-//Fetching API
 
-fetch(url, options)
-    .then(response => {
+<section id="Register">
+    <h2>
+<a class="anchor" href="#register" aria-hidden="true"><span class="octicon octicon-link"></span></a>Register</h2>
+    <form method="POST">
+    <label for="user">Username / Nombre de Usario:</label><br>
+    <input type="text" id="user" name="user" value=""><br>
+    <label for="pass">Password / Clave:</label><br>
+    <input type="text" id="pass" name="pass" value=""><br>
+    <input type="submit" name="submit" value="SUBMIT/ENVIAR">
+    </form>
+</section>
+<!--work in progress code for communicaton between frontend and backend.-->
+<script>
+    const username = "user"
+    const password = "pass"
+    const url = "frost.nighthawkcodescrums.gq/api/auth"
+    const options = {
+        method: 'GET',
+        mode: 'cors',
+        cache: 'default', 
+        credentials: 'omit', 
+        headers: {
+            'Content-Type': 'application/json'
+            }
+        };
+    const put_options = {...options, method: 'PUT'};
+    function reaction(type, put_url, elemID) {
+        fetch('frost.nighthawkcodescrums.gq/api/auth')
+        .then(response => {
         if (response.status !== 200) {
-        error('GET API response failure: ' + response.status);
+            error('GET API response failure: ' + response.status);
         return;
-    }
-    response.json().then(data=> {
-        console.log(data)
-    })
-
-
-
-
-
-
-
-
-})
-
-
-
+        response.json().then(data => {
+        document.getElementById(_GetPWD)
+        })
 </script>
 
 
-  </div><a class="u-url" href="/MinesweeperFrontEnd/markdown/2022/10/23/mine.html" hidden></a>
+</body>
+  </div><a class="u-url" href="/MinesweeperFrontEnd/markdown/2022/10/24/minesweeper.html" hidden></a>
 </article>
 
       </div>
