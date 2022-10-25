@@ -427,6 +427,12 @@ pre code { font-size: 15px !important; }
 
 /*-----------------------------------*/
 /*----- ADD YOUR STYLES BELOW -------*/
+body { background: linear-gradient(-45deg, #bbf0e5, #c4e2ee, #b0e7e7, #6182e2, #b0e7e7); background-size: 400% 400%; animation: gradient 15s ease infinite; height: 100vh; }
+
+@keyframes gradient { 0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; } }
+
 .language-python + .language-plaintext { border-left: 1px solid grey; margin-left: 1rem !important; }
 
 [class^="language-"]:not(.language-plaintext) pre, [class^="language-"]:not(.language-plaintext) code { background-color: #323443 !important; color: #f8f8f2; }
