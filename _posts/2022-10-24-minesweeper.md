@@ -15,10 +15,11 @@ title: Minesweeper FrontEnd
     <h2>Login</h2>
     <form action = "user_auth.py" method="POST">
     <label for="user">Username / Nombre de Usario:</label><br>
-    <input type="text" id="user" name="user" value=""><br>
+    <input type="text" id="user_login" name="user" value=""><br>
     <label for="pass">Password / Clave:</label><br>
-    <input type="text" id="pass" name="pass" value=""><br>
-    <input type="submit" name ="submit" value = "SUBMIT/ENVIAR">
+    <input type="text" id="pwd_login" name="pass" value=""><br>
+    <!--use a button instead of input-->
+    <input type="submit" onclick= "loginVerify()" name ="submit" value = "SUBMIT/ENVIAR">
     </form>
 </section>
 
@@ -27,10 +28,10 @@ title: Minesweeper FrontEnd
     <h2>Register</h2>
     <form method="POST">
     <label for="user">Username / Nombre de Usario:</label><br>
-    <input type="text" id="user" name="user" value=""><br>
+    <input type="text" id="rg_usr" name="user" value=""><br>
     <label for="pass">Password / Clave:</label><br>
-    <input type="text" id="pass" name="pass" value=""><br>
-    <input type="submit" name ="submit" value = "SUBMIT/ENVIAR">
+    <input type="text" id="rg_pwd" name="pass" value=""><br>
+    <input type="submit" onclick= "registration()" name ="submit" value = "SUBMIT/ENVIAR">
     </form>
 </section>
 <!--work in progress code for communicaton between frontend and backend.-->
@@ -48,6 +49,21 @@ title: Minesweeper FrontEnd
             }
         };
     const put_options = {...options, method: 'PUT'};
+    //function should grab either true or false from the frost API, if true, reveal game grid, if false, do nothing, send an alert or smthin
+    function loginVerify(){
+        let usr = document.getElementById("user_login").value;
+        let pwd = document.getElementById("pwd_login").value;
+        let auth_url = "frost.nighthawkcodescrums.gq/api/auth/" + usr + "/" + pwd + "/verify";
+        // make a query to frost.nighthawkcodescrums.gq/api/auth/<usr>/<pwd>/verify
+        // If the returned statement is "true", hide the login and registration, and display high score and game board
+        // if false, clear form, and send an alert to the user
+        alert(input)
+    }
+    function registration(){
+        let usr = document.getElementById("rg_usr").value;
+        let pwd = document.getElementById("rg_pwd").value;
+        // make a query to frost.nighthawkcodescrums.gq/api/auth/<usr>/<pwd>/registration
+    }
     function reaction(type, put_url, elemID) {
         fetch('frost.nighthawkcodescrums.gq/api/auth')
         .then(response => {
@@ -57,6 +73,7 @@ title: Minesweeper FrontEnd
         response.json().then(data => {
         document.getElementById(_GetPWD)
         })
+    }
 </script>
 
 </body>
