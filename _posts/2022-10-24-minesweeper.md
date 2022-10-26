@@ -13,7 +13,6 @@ title: Minesweeper FrontEnd
 <section id="login" style="display:block;">
 <!-- Login form for Minesweeper game, set display to false after successful login-->
     <h2>Login</h2>
-    <form action = "user_auth.py" method="POST">
     <label for="user">Username / Nombre de Usario:</label><br>
     <input type="text" id="user_login" name="user" value=""><br>
     <label for="pass">Password / Clave:</label><br>
