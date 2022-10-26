@@ -1,18 +1,19 @@
 ---
 toc: true
 layout: post
-description: 
+description: Front end for minesweeper!
 categories: [markdown]
-title: Play
+title: Minesweeper FrontEnd
 ---
 
-<!--background styling-->
 
+</head>
 <!--code for the login and registration forms that take username and password.-->
 <body>
 <section id="login" style="display:block;">
 <!-- Login form for Minesweeper game, set display to false after successful login-->
     <h2>Login</h2>
+    <form  method="POST">
     <label for="user">Username / Nombre de Usario:</label><br>
     <input type="text" id="user_login" name="user" value=""><br>
     <label for="pass">Password / Clave:</label><br>
