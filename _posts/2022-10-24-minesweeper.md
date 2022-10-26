@@ -7,6 +7,7 @@ title: Play
 ---
 
 
+
 </head>
 <!--code for the login and registration forms that take username and password.-->
 <body>
