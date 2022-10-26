@@ -21,5 +21,6 @@ permalink: /about/
             background-position: 0% 50%;
         }
     }
+</style>
 
 About the Creators: We are from Mr. Mortensen's Period 4. Class.
