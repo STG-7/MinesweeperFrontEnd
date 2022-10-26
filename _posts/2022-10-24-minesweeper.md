@@ -1,13 +1,13 @@
 ---
 toc: true
 layout: post
-description: Front end for minesweeper!
+description: 
 categories: [markdown]
-title: Minesweeper FrontEnd
+title: Play
 ---
 
+<!--background styling-->
 
-</head>
 <!--code for the login and registration forms that take username and password.-->
 <body>
 <section id="login" style="display:block;">
