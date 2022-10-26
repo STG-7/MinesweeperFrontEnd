@@ -1,9 +1,9 @@
 ---
 toc: true
 layout: post
-description: Front end for minesweeper!
+description: 
 categories: [markdown]
-title: Minesweeper FrontEnd
+title: Play
 ---
 
 
