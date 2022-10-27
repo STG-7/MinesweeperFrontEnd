@@ -45,17 +45,29 @@ title: Play
         <label for="pass">Password / Clave:</label><br>
         <input type="text" id="pwd_login" name="pass" value=""><br><br>
         <!--use a button instead of input-->
-        <button id ="login_submit">SUBMIT/ENVIAR</button>
+        <button id ="login_submit" type='button'>SUBMIT/ENVIAR</button>
         <script>
             $("#login_submit").click(function() {
                 let usr = document.getElementById("usr_login").value;
                 let pwd = document.getElementById("pwd_login").value;
                 let auth_url = "https://frost.nighthawkcodescrums.gq/api/auth/" + usr + "/" + pwd + "/verify";
-                fetch(auth_url)
-                    .then(response => response.json())
-                    .then(json => {
-                        alert(json.usr)
-                    })
+                const headers = {
+                        method: 'GET', // *GET, POST, PUT, DELETE, etc.
+                        mode: 'cors', // no-cors, *cors, same-origin
+                        cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+                        credentials: 'omit', // include, *same-origin, omit
+                        headers: {'Content-Type': 'application/json'},
+                };
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", auth_url);
+
+                xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status == 200) {
+                    console.log(xhr.status);
+                    console.log(xhr.responseText);
+                }};
+
+                xhr.send();
             });
         </script>
         
@@ -66,38 +78,36 @@ title: Play
 <section id="register" style="display:block;">
 <!-- Registration form for Minesweeper game, set display to false after successful login-->
     <form method="POST">
-    <h2>Register</h2>
-    <label for="user">Username / Nombre de Usario:</label><br>
-    <input type="text" id="rg_usr" name="user" value=""><br>
-    <label for="pass">Password / Clave:</label><br>
-    <input type="text" id="rg_pwd" name="pass" value=""><br><br>
-    <button id ="registration_submit">SUBMIT/ENVIAR</button>
+        <h2>Register</h2>
+        <label for="user">Username / Nombre de Usario:</label><br>
+        <input type="text" id="rg_usr" name="user" value=""><br>
+        <label for="pass">Password / Clave:</label><br>
+        <input type="text" id="rg_pwd" name="pass" value=""><br><br>
+        <button id ="registration_submit">SUBMIT/ENVIAR</button>
         <script>
-            $("#registration_submit").click(function() {
-                let usr = document.getElementById("usr_login").value;
-                let pwd = document.getElementById("pwd_login").value;
-                let auth_url = "frost.nighthawkcodescrums.gq/api/auth/" + usr + "/" + pwd + "/register";
-                const headers = {
-                    method: 'GET', // *GET, POST, PUT, DELETE, etc.
-                    mode: 'cors', // no-cors, *cors, same-origin
-                    cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
-                    credentials: 'omit', // include, *same-origin, omit
-                    headers: {'Content-Type': 'application/json'},
-                    };
-                fetch(url, headers).then(response => {
-                        if (response.status !== 200) {
-                            console.log('Reponse error, error code: ' + response.status);
-                            return;
-                        }
-                        response.json().then(data => {
-                            console.log(data);
-                        }
-                    })
-            });
+                $("#registration_submit").click(function() {
+                    let usr = document.getElementById("usr_login").value;
+                    let pwd = document.getElementById("pwd_login").value;
+                    let auth_url = "frost.nighthawkcodescrums.gq/api/auth/" + usr + "/" + pwd + "/register";
+                    const headers = {
+                        method: 'GET', // *GET, POST, PUT, DELETE, etc.
+                        mode: 'cors', // no-cors, *cors, same-origin
+                        cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+                        credentials: 'omit', // include, *same-origin, omit
+                        headers: {'Content-Type': 'application/json'},
+                        };
+                    fetch(url, headers)
+                        .then((response) => response.json())
+                        .then((result) => {console.log('Success:', result);})
+                        .catch((error) => {console.error('Error:', error);});
+                });
         </script>
     </form>
+
 </section>
+
 <!--work in progress code for communicaton between frontend and backend.-->
+<!-- 
 <script>
     const username = "user"
     const password = "pass"
@@ -139,5 +149,6 @@ title: Play
         })
     }
 </script>
+-->
 
 </body>
