@@ -1,12 +1,11 @@
 ---
 toc: true
 layout: post
-description: 
+description: Click to Play
 categories: [markdown]
 title: Play
 ---
 
-<!--background styling-->
 
 <!--code for the login and registration forms that take username and password.-->
 <body>
