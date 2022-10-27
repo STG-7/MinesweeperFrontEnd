@@ -13,7 +13,7 @@ title: Play
 <section id="login" style="display:block;">
 <!-- Login form for Minesweeper game, set display to false after successful login-->
     <h2>Login</h2>
-    <form action = "user_auth.py" method="POST">
+    <form action = "" method="POST">
     <label for="user">Username / Nombre de Usario:</label><br>
     <input type="text" id="user_login" name="user" value=""><br>
     <label for="pass">Password / Clave:</label><br>
@@ -55,9 +55,24 @@ title: Play
         let pwd = document.getElementById("pwd_login").value;
         let auth_url = "frost.nighthawkcodescrums.gq/api/auth/" + usr + "/" + pwd + "/verify";
         // make a query to frost.nighthawkcodescrums.gq/api/auth/<usr>/<pwd>/verify
-        // If the returned statement is "true", hide the login and registration, and display high score and game board
+        GET frost.nighthawkcodescrums.gq/api/auth/<usr>/<pwd>/verify;
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open('GET', 'auth_url');
+        var xmlDoc;
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                if (auth_url = true){
+                document.getElementById('login').style.visibility='none';
+                } else {
+                alert(auth_url);
+                login.reset();
+        }
+        };
+        }
         // if false, clear form, and send an alert to the user
-        alert(auth_url)
+        // If the returned statement is "true", hide the login and registration, and display high score and game board
+        if (auth_url = true){
+            document.getElementById('login').style.visibility='none';
     }
     function registration(){
         let usr = document.getElementById("rg_usr").value;
