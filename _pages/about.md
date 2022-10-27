@@ -25,8 +25,8 @@ permalink: /about/
 
 Meet our Group:
 
-- Shaurya Goel: Scrum Master
-- Alex Lu: Backend Developer
-- Haseeb Beg: Frontend Developer
-- Tirth Thakar: Frontend Developer
-- Evan Apari: Dev Ops Engineer
+- Shaurya Goel - Scrum Master
+- Alex Lu - Backend Developer
+- Haseeb Beg - Frontend Developer
+- Tirth Thakar - Frontend Developer
+- Evan Apari - Dev Ops Engineer
