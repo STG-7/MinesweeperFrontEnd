@@ -23,6 +23,10 @@ permalink: /about/
     }
 </style>
 
-About Us:
+Meet our Group:
 
-This is our project for AP Computer Science Principles Trimester 1. We used a python flask server for backend and javascript developmeent and we used a fastpages server for frontend developement.
+- Shaurya Goel: Scrum Master
+- Alex Lu: Backend Developer
+- Haseeb Beg: Frontend Developer
+- Tirth Thakar: Frontend Developer
+- Evan Apari: Dev Ops Engineer
