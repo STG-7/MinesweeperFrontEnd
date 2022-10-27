@@ -1,7 +1,7 @@
 ---
 layout: post
 description: Click to Play
-categories: [markdown]
+categories: [Play]
 title: Play
 ---
 

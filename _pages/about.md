@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About Me
+title: About the Creators
 permalink: /about/
 ---
 <style>
@@ -23,4 +23,10 @@ permalink: /about/
     }
 </style>
 
-About the Creators: We are from Mr. Mortensen's Period 4. Class.
+Meet our Group:
+
+- Shaurya Goel - Scrum Master
+- Alex Lu - Backend Developer
+- Haseeb Beg - Frontend Developer
+- Tirth Thakar - Frontend Developer
+- Evan Apari - Dev Ops Engineer
