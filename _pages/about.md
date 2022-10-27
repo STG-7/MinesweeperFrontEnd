@@ -25,4 +25,4 @@ permalink: /about/
 
 About Us:
 
-This is our project for AP Computer Science Principles trimester 1. We used
+This is our project for AP Computer Science Principles Trimester 1. We used a python flask server for backend and javascript developmeent and we used a fastpages server for frontend developement.
