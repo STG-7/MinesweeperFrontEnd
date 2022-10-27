@@ -3,7 +3,7 @@ toc: true
 layout: post
 description: Click to Play
 categories: [markdown]
-title: Minesweeper FrontEnd
+title: Play
 ---
 
 
