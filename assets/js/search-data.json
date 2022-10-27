@@ -4,7 +4,7 @@
         "post0": {
             "title": "Play",
             "content": "Login . Username / Nombre de Usario: Password / Clave: SUBMIT/ENVIAR Register . Username / Nombre de Usario: Password / Clave: SUBMIT/ENVIAR",
-            "url": "https://stg-7.github.io/Minesweeper/markdown/2022/10/24/minesweeper.html",
+            "url": "https://stg-7.github.io/MinesweeperFrontEnd/markdown/2022/10/24/minesweeper.html",
             "relUrl": "/markdown/2022/10/24/minesweeper.html",
             "date": " • Oct 24, 2022"
         }
@@ -19,7 +19,7 @@
       ,"page1": {
           "title": "About Me",
           "content": "About the Creators: We are from Mr. Mortensen’s Period 4. Class. .",
-          "url": "https://stg-7.github.io/Minesweeper/about/",
+          "url": "https://stg-7.github.io/MinesweeperFrontEnd/about/",
           "relUrl": "/about/",
           "date": ""
       }
@@ -51,7 +51,7 @@
       ,"page10": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
-          "url": "https://stg-7.github.io/Minesweeper/robots.txt",
+          "url": "https://stg-7.github.io/MinesweeperFrontEnd/robots.txt",
           "relUrl": "/robots.txt",
           "date": ""
       }
