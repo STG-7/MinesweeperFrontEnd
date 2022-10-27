@@ -1,7 +1,7 @@
 ---
 toc: true
 layout: post
-description: Front end for minesweeper!
+description: Click to Play
 categories: [markdown]
 title: Minesweeper FrontEnd
 ---
