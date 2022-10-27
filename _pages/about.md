@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About Me
+title: About the Creators
 permalink: /about/
 ---
 <style>
@@ -23,4 +23,6 @@ permalink: /about/
     }
 </style>
 
-About the Creators: We are from Mr. Mortensen's Period 4. Class.
+About Us:
+
+This is our project for AP Computer Science Principles trimester 1. We used
