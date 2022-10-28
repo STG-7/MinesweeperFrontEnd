@@ -32,8 +32,6 @@
   
 
   
-
-  
   
 
   
@@ -48,7 +46,7 @@
   
 
   
-      ,"page10": {
+      ,"page9": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://stg-7.github.io/MinesweeperFrontEnd/robots.txt",
