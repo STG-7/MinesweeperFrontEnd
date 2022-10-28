@@ -26,6 +26,22 @@ title: Play
         margin-left: 15%;
         margin-right: 15%;
     }
+    #field grid {
+        border-collapse: collapse;
+        font-size: 150%;
+        font-family: 'Courier New', monospace;
+        font-weight: bold;
+        display: inline-block;
+    }
+    #field table td {
+        background-color: rgb(201, 255, 251);
+        width: 30px;
+        min-width: 30px;
+        height: 30px;
+        font-family: 'Courier New', monospace;
+        min-height: 30px;
+        border-radius:7px;
+    }
     form{
         margin-top: 2em;
         margin-bottom: 2em;
@@ -203,7 +219,7 @@ title: Play
             if (this.flagged) {
                 return;
             }
-            this.style.backgroundColor = 'lightGrey';
+            this.style.backgroundColor = 'rgb(69, 193, 255)';
         });
 
         td.addEventListener('mouseup', function(event) {
@@ -264,7 +280,7 @@ title: Play
             
         }
         else {
-            cell.style.backgroundColor = 'lightGrey';
+            cell.style.backgroundColor = 'rgb(69, 193, 255)';
             num_of_bombs = adjacentBombs(i, j);
             if (num_of_bombs) {
                 cell.style.color = components.colors[num_of_bombs];
