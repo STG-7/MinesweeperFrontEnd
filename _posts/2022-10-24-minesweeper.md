@@ -98,7 +98,7 @@ title: Play
                         document.getElementById("login").style.display = "none";
                         document.getElementById("register").style.display = "none";
                         document.getElementById("minesweeper").style.display = "block";
-                        document.getElementById("")
+                        document.getElementById("current_usr").innerHTML = "Current User: " + usr;
                     };
                 }};
                 xhr.send();
