@@ -36,8 +36,8 @@ title: Play
     #field table td {
         background-color: rgb(201, 255, 251);
         width: 30px;
-        min-width: 30px;
         height: 30px;
+        border: none;
         font-family: 'Courier New', monospace;
         min-height: 30px;
         border-radius:7px;
