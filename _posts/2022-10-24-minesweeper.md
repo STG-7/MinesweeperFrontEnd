@@ -54,6 +54,7 @@ title: Play
 <section id="minesweeper" style="display:none;">
     <div id="box">
          <h2>MINESWEEPER!</h2><hr><br><br>
+         <p id="current_usr">Current User: </p>
             <div id="field"></div>
             <br>
           <div id="lost" style="display: none;">
@@ -97,6 +98,7 @@ title: Play
                         document.getElementById("login").style.display = "none";
                         document.getElementById("register").style.display = "none";
                         document.getElementById("minesweeper").style.display = "block";
+                        document.getElementById("")
                     };
                 }};
                 xhr.send();
