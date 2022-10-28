@@ -39,6 +39,9 @@ image: images/logo.png
         min-height: 30px;
         border-radius:7px;
     }
+    #login_invalid p {
+        color: red;
+    }
     form{
         margin-top: 2em;
         margin-bottom: 2em;
@@ -69,6 +72,7 @@ image: images/logo.png
         <input type="text" id="usr_login" name="user" value=""><br>
         <label for="pass">Password / Clave:</label><br>
         <input type="password" id="pwd_login" name="pass" value=""><br><br>
+        <p id="login_invalid"> </p>
         <!--use a button instead of input-->
         <button id ="login_submit" type='button'>SUBMIT/ENVIAR</button>
         <script>
@@ -95,7 +99,12 @@ image: images/logo.png
                         document.getElementById("login").style.display = "none";
                         document.getElementById("register").style.display = "none";
                         document.getElementById("minesweeper").style.display = "block";
-                        //document.getElementById("current_usr").innerHTML = "Current User: " + usr;
+                        document.getElementById("current_usr").innerHTML = "Current User: " + document.getElementById("usr_login").value;
+                    }
+                    else {
+                        document.getElementById("login_invalid").style.color = "red";
+                        document.getElementById("login_invalid").style.fontWeight = 1000    ;
+                        document.getElementById("login_invalid").innerHTML= "Login Credentials Incorrect, please try again";
                     };
                 }};
                 xhr.send();
@@ -109,31 +118,44 @@ image: images/logo.png
 <section id="register" style="display:block;">
 <!-- Registration form for Minesweeper game, set display to false after successful login-->
     <form method="POST">
+        <br>
         <h2>Register</h2>
         <label for="user">Username / Nombre de Usario:</label><br>
         <input type="text" id="rg_usr" name="user" value=""><br>
         <label for="pass">Password / Clave:</label><br>
         <input type="password" id="rg_pwd" name="pass" value=""><br><br>
-        <button id ="registration_submit">SUBMIT/ENVIAR</button>
+        <p id="reg_message"> </p>
+        <button id ="registration_submit" type='button'>SUBMIT/ENVIAR</button>
         <script>
-                $("#registration_submit").click(function() {
-                    let usr = document.getElementById("usr_login").value;
-                    let pwd = document.getElementById("pwd_login").value;
-                    let auth_url = "frost.nighthawkcodescrums.gq/api/auth/" + usr + "/" + pwd + "/register";
-                    const headers = {
+            $("#registration_submit").click(function() {
+                let usr = document.getElementById("rg_usr").value;
+                let pwd = document.getElementById("rg_pwd").value;
+                let auth_url = "https://frost.nighthawkcodescrums.gq/api/auth/" + usr + "/" + pwd + "/register";
+                const headers = {
                         method: 'GET', // *GET, POST, PUT, DELETE, etc.
                         mode: 'cors', // no-cors, *cors, same-origin
                         cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
                         credentials: 'omit', // include, *same-origin, omit
                         headers: {'Content-Type': 'application/json'},
-                        };
-                    fetch(url, headers)
-                        .then((response) => response.json())
-                        .then((result) => {console.log('Success:', result);})
-                        .catch((error) => {console.error('Error:', error);});
+                };
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", auth_url);
+
+                xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status == 200) {
+                    let data = xhr.responseText;
+                    console.log(data);
+                    console.log(typeof data);
+                    document.getElementById("reg_message").style.color = "green";
+                    document.getElementById("reg_message").style.fontWeight = 1000    ;
+                    document.getElementById("reg_message").innerHTML= "User \"" + document.getElementById("rg_usr").value + "\" has been created with the provided credentials";
+                    };
+                }
+                xhr.send();
                 });
         </script>
     </form>
+    <br>
 
 </section>
 
