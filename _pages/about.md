@@ -25,8 +25,8 @@ permalink: /about/
 
 Meet our Group:
 
-- Shaurya Goel - Scrum Master
-- Alex Lu - Backend Developer
-- Haseeb Beg - Frontend Developer
-- Tirth Thakar - Frontend Developer
-- Evan Apari - Dev Ops Engineer
+- [Shaurya Goel - Scrum Master](https://github.com/STG-7)
+- [Alex Lu - Backend Developer](https://github.com/YLu-1258)
+- [Haseeb Beg - Frontend Developer](https://github.com/h4seeb-cmd)
+- [Tirth Thakar - Frontend Developer](https://github.com/Tirth-Thakkar)
+- [Evan Aparri - Dev Ops Engineer](https://github.com/chewyboba10)
