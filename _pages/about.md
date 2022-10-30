@@ -3,6 +3,19 @@ layout: default
 title: About the Creators
 permalink: /about/
 ---
+<script>
+    document.getElementById("cards").onmousemove = e => {
+  for(const card of document.getElementsByClassName("card")) {
+    const rect = card.getBoundingClientRect(),
+          x = e.clientX - rect.left,
+          y = e.clientY - rect.top;
+
+    card.style.setProperty("--mouse-x", `${x}px`);
+    card.style.setProperty("--mouse-y", `${y}px`);
+  };
+}
+</script>
+
 <style>
     :root {
   --bg-color: rgb(0, 0, 20);
@@ -100,7 +113,6 @@ body {
   flex-grow: 1;
   inset: 1px;
   padding: 10px;
-  position: absolute;
   z-index: 2;
 }
 
@@ -217,19 +229,6 @@ i {
   }
 }
 </style>
-
-<script>
-    document.getElementById("cards").onmousemove = e => {
-  for(const card of document.getElementsByClassName("card")) {
-    const rect = card.getBoundingClientRect(),
-          x = e.clientX - rect.left,
-          y = e.clientY - rect.top;
-
-    card.style.setProperty("--mouse-x", `${x}px`);
-    card.style.setProperty("--mouse-y", `${y}px`);
-  };
-}
-</script>
 
 <div id="cards">
   <a href = "https://h4seeb-cmd.github.io/turtle/">
