@@ -76,6 +76,7 @@ window.onload = wrap_img;
 <!--code for the login and registration forms that take username and password.-->
 <body>
     <style>
+        
         #home div {
             width: 100%
         }
@@ -169,106 +170,108 @@ window.onload = wrap_img;
         </div> 
     </section>
 
-    <section id="login" style="display:block;" class="gradient-border">
-    <!-- Login form for Minesweeper game, set display to false after successful login-->
-        <form>
-            <br />
-            <h2>Login</h2>
-            <label for="user">Username / Nombre de Usario:</label><br />
-            <input type="text" id="usr_login" name="user" value="" /><br />
-            <label for="pass">Password / Clave:</label><br />
-            <input type="password" id="pwd_login" name="pass" value="" /><br /><br />
-            <p id="login_invalid"> </p>
-            <!--use a button instead of input-->
-            <button id="login_submit" type="button">SUBMIT/ENVIAR</button>
-            <script>
-                $("#login_submit").click(function() {
-                    let usr = document.getElementById("usr_login").value;
-                    let pwd = document.getElementById("pwd_login").value;
-                    let auth_url = "https://frost.nighthawkcodescrums.gq/api/auth/" + usr + "/" + pwd + "/verify";
-                    const headers = {
-                            method: 'GET', // *GET, POST, PUT, DELETE, etc.
-                            mode: 'cors', // no-cors, *cors, same-origin
-                            cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
-                            credentials: 'omit', // include, *same-origin, omit
-                            headers: {'Content-Type': 'application/json'},
-                    };
-                    var xhr = new XMLHttpRequest();
-                    xhr.open("GET", auth_url);
-
-                    xhr.onreadystatechange = function () {
-                    if (xhr.readyState === 4 && xhr.status == 200) {
-                        let data = xhr.responseText;
-                        console.log(data);
-                        console.log(typeof data);
-                        if (data == "true\n") {
-                            document.getElementById("login").style.display = "none";
-                            document.getElementById("register").style.display = "none";
-                            document.getElementById("minesweeper").style.display = "block";
-                            document.getElementById("current_usr").innerHTML = "Current User: <br>" + document.getElementById("usr_login").value;
-                        }
-                        else {
-                            document.getElementById("login_invalid").style.color = "red";
-                            document.getElementById("login_invalid").style.fontWeight = 1000    ;
-                            document.getElementById("login_invalid").innerHTML= "Login Credentials Incorrect, please try again";
+    <section>
+        <section id="login" style="display:block;" class="gradient-border child">
+        <!-- Login form for Minesweeper game, set display to false after successful login-->
+            <form>
+                <br />
+                <h2>Login</h2>
+                <label for="user">Username / Nombre de Usario:</label><br />
+                <input type="text" id="usr_login" name="user" value="" /><br />
+                <label for="pass">Password / Clave:</label><br />
+                <input type="password" id="pwd_login" name="pass" value="" /><br /><br />
+                <p id="login_invalid"> </p>
+                <!--use a button instead of input-->
+                <button id="login_submit" type="button">SUBMIT/ENVIAR</button>
+                <script>
+                    $("#login_submit").click(function() {
+                        let usr = document.getElementById("usr_login").value;
+                        let pwd = document.getElementById("pwd_login").value;
+                        let auth_url = "https://frost.nighthawkcodescrums.gq/api/auth/" + usr + "/" + pwd + "/verify";
+                        const headers = {
+                                method: 'GET', // *GET, POST, PUT, DELETE, etc.
+                                mode: 'cors', // no-cors, *cors, same-origin
+                                cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+                                credentials: 'omit', // include, *same-origin, omit
+                                headers: {'Content-Type': 'application/json'},
                         };
-                    }};
-                    xhr.send();
-                });
-            </script>
-            
-        </form>
-        <br />
-    </section>
+                        var xhr = new XMLHttpRequest();
+                        xhr.open("GET", auth_url);
 
-    <section id="register" style="display:block;" class="gradient-border">
-    <!-- Registration form for Minesweeper game, set display to false after successful login-->
-        <form method="POST">
-            <br />
-            <h2>Register</h2>
-            <label for="user">Username / Nombre de Usario:</label><br />
-            <input type="text" id="rg_usr" name="user" value="" /><br />
-            <label for="pass">Password / Clave:</label><br />
-            <input type="password" id="rg_pwd" name="pass" value="" /><br /><br />
-            <p id="reg_message"> </p>
-            <button id="registration_submit" type="button">SUBMIT/ENVIAR</button>
-            <script>
-                $("#registration_submit").click(function() {
-                    let usr = document.getElementById("rg_usr").value;
-                    let pwd = document.getElementById("rg_pwd").value;
-                    let auth_url = "https://frost.nighthawkcodescrums.gq/api/auth/" + usr + "/" + pwd + "/register";
-                    const headers = {
-                            method: 'GET', // *GET, POST, PUT, DELETE, etc.
-                            mode: 'cors', // no-cors, *cors, same-origin
-                            cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
-                            credentials: 'omit', // include, *same-origin, omit
-                            headers: {'Content-Type': 'application/json'},
-                    };
-                    var xhr = new XMLHttpRequest();
-                    xhr.open("GET", auth_url);
-
-                    xhr.onreadystatechange = function () {
-                    if (xhr.readyState === 4 && xhr.status == 200) {
-                        let data = xhr.responseText;
-                        console.log(data);
-                        console.log(typeof data);
-                        document.getElementById("reg_message").style.color = "green";
-                        document.getElementById("reg_message").style.fontWeight = 1000    ;
-                        document.getElementById("reg_message").innerHTML= "User \"" + document.getElementById("rg_usr").value + "\" has been created with the provided credentials";
-                        };
-                    }
-                    xhr.send();
+                        xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status == 200) {
+                            let data = xhr.responseText;
+                            console.log(data);
+                            console.log(typeof data);
+                            if (data == "true\n") {
+                                document.getElementById("login").style.display = "none";
+                                document.getElementById("register").style.display = "none";
+                                document.getElementById("minesweeper").style.display = "block";
+                                document.getElementById("current_usr").innerHTML = "Current User: <br>" + document.getElementById("usr_login").value;
+                            }
+                            else {
+                                document.getElementById("login_invalid").style.color = "red";
+                                document.getElementById("login_invalid").style.fontWeight = 1000    ;
+                                document.getElementById("login_invalid").innerHTML= "Login Credentials Incorrect, please try again";
+                            };
+                        }};
+                        xhr.send();
                     });
-            </script>
-        </form>
-        <br />
+                </script>
+                
+            </form>
+            <br />
+        </section>
 
+        <section id="register" style="display:block;" class="gradient-border child">
+        <!-- Registration form for Minesweeper game, set display to false after successful login-->
+            <form method="POST">
+                <br />
+                <h2>Register</h2>
+                <label for="user">Username / Nombre de Usario:</label><br />
+                <input type="text" id="rg_usr" name="user" value="" /><br />
+                <label for="pass">Password / Clave:</label><br />
+                <input type="password" id="rg_pwd" name="pass" value="" /><br /><br />
+                <p id="reg_message"> </p>
+                <button id="registration_submit" type="button">SUBMIT/ENVIAR</button>
+                <script>
+                    $("#registration_submit").click(function() {
+                        let usr = document.getElementById("rg_usr").value;
+                        let pwd = document.getElementById("rg_pwd").value;
+                        let auth_url = "https://frost.nighthawkcodescrums.gq/api/auth/" + usr + "/" + pwd + "/register";
+                        const headers = {
+                                method: 'GET', // *GET, POST, PUT, DELETE, etc.
+                                mode: 'cors', // no-cors, *cors, same-origin
+                                cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+                                credentials: 'omit', // include, *same-origin, omit
+                                headers: {'Content-Type': 'application/json'},
+                        };
+                        var xhr = new XMLHttpRequest();
+                        xhr.open("GET", auth_url);
+
+                        xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status == 200) {
+                            let data = xhr.responseText;
+                            console.log(data);
+                            console.log(typeof data);
+                            document.getElementById("reg_message").style.color = "green";
+                            document.getElementById("reg_message").style.fontWeight = 1000    ;
+                            document.getElementById("reg_message").innerHTML= "User \"" + document.getElementById("rg_usr").value + "\" has been created with the provided credentials";
+                            };
+                        }
+                        xhr.send();
+                        });
+                </script>
+            </form>
+            <br />
+
+        </section>
     </section>
     <script>
         var components = {
             num_of_rows : 10,
             num_of_cols : 10,
-            total : 20,
+            total : 15,
             remaining : 0,
             display : {1: 'blue', 2: 'green', 3: 'red', 4: 'purple', 5: 'maroon', 6: 'turquoise', 7: 'black', 8: 'grey', "bomb" : '💣', "flag" : "🚩"},
             board : [],
@@ -282,21 +285,21 @@ window.onload = wrap_img;
                     cssWidth = (100 / components.num_of_cols);
                     wrap.innerHTML = "";
                 
-                // (B3) LOOP THROUGH ROWS & COLUMNS - GENERATE CELLS
+                // Generate board by looping through rows and coloumns
                 for (let row=0; row<components.num_of_rows; row++) {
                     components.board.push([]); 
                     for (let col=0; col<components.num_of_cols; col++) {
-                        // ADD CELL TO components.BOARD[]
+                        // add the cells to the board
                         components.board[row].push({ 
-                            r : false, // CELL IS REVEALED?
-                            x : false, // CELL IS MARKED?
-                            m : false, // CELL HAS A MINE?
-                            a : 0, // NUMBER OF MINES IN ADJACENT CELLS
-                            c : document.createElement("div") // HTML REFERENCE
+                            r : false, // revealed
+                            x : false, // marked
+                            m : false, // mine
+                            a : 0, // adjacent
+                            c : document.createElement("div")
                         });
                         console.log("success")
                 
-                        // ADD CELL TO HTML <DIV>
+                        // add to the html
                         let cell = components.board[row][col].c;
                         cell.classList.add("cell");
                         cell.id = "mine-" + row + "-" + col;
@@ -314,7 +317,7 @@ window.onload = wrap_img;
                     }
                 }
                 
-                // (B4) RANDOMLY LAY componentsS
+                // generate mines
                 let mRow = components.num_of_rows - 1,
                     mCol = components.num_of_cols - 1,
                     mToLay = components.total;
@@ -323,8 +326,6 @@ window.onload = wrap_img;
                     let col = Math.floor(Math.random() * mCol);
                     if (!components.board[row][col].m) {
                         components.board[row][col].m = true;
-                        // CHEAT - SHOW components ON THE BOARD
-                        // components.board[row][col].c.innerHTML = "*";
                         mToLay--;
                     }
                 }
@@ -387,14 +388,15 @@ window.onload = wrap_img;
                 }
             },
             open : (cell) => {
-                    // (D1) GET COORDS OF SELECTED CELL
+                    // Get cell coordinates
                     let row = cell.dataset.row,
                         col = cell.dataset.col;
+                    // Do nothing if the cell is marked
                     if (components.board[row][col].x) {
                         return ;
                     }
 
-                    // (D2) SELECTED CELL HAS components = LOSE
+                    // End game if mine is selected
                     if (!components.board[row][col].x && components.board[row][col].m) {
                         components.revealMines();
                         setTimeout(() => {
