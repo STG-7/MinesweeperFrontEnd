@@ -79,7 +79,7 @@ body {
   height: 100%;
   left: 0px;
   opacity: 0;
-  position: absolute;
+  position: relative;
   top: 0px;
   transition: opacity 500ms;
   width: 100%;
