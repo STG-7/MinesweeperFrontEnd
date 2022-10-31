@@ -11,7 +11,7 @@ image: images/logo.png
         background-color: rgb(136, 233, 255);
         box-sizing: border-box;
         border-radius: 7px;
-        border: 1px solid rgb(0, 153, 254);
+        border: 2px solid rgb(77, 65, 255);
         font-size: 40px;
         text-align: center;
         cursor: pointer;
@@ -172,7 +172,7 @@ image: images/logo.png
         
         // establish the proper width value for the css based on the established colomuns
         let wrap = document.getElementById("field"),
-            cssWidth = 100 / components.num_of_cols;
+            cssWidth = (100 / components.num_of_cols);
             wrap.innerHTML = "";
         
         // (B3) LOOP THROUGH ROWS & COLUMNS - GENERATE CELLS
@@ -201,6 +201,7 @@ image: images/logo.png
                     components.mark(cell);
                 };
                 cell.style.width = cssWidth + "%";
+                cell.style.height = cssWidth + "%";
                 cell.innerHTML = "&nbsp;";
                 wrap.appendChild(cell);
             }
@@ -362,7 +363,7 @@ image: images/logo.png
                     components.board[thisRow][thisCol].c.style.color = components.display[components.board[thisRow][thisCol].a];
                     }
                     components.board[thisRow][thisCol].c.classList.add("reveal");
-                    components.board[thisRow][thisCol].c.style.backgroundColor = "rgb(12, 177, 214)";
+                    components.board[thisRow][thisCol].c.style.backgroundColor = "rgba(12, 177, 214,.7)";
                     components.remaining = components.remaining - 1;
                 }
             }
