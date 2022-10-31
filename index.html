@@ -338,7 +338,7 @@ window.onload = wrap_img;
         // (C2) MARK/UNMARK ONLY IF CELL IS STILL HIDDEN
         if (!components.board[row][col].r) {
             if (components.board[row][col].x) {
-                components.board[row][col].c.innerHTML = "";
+                components.board[row][col].c.innerHTML = " ";
                 components.board[row][col].x = !components.board[row][col].x;
             }
             else {
