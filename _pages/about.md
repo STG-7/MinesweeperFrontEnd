@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: about
 title: About the Creators
 permalink: /about/
 ---
@@ -9,6 +9,12 @@ permalink: /about/
         background-size: 400% 400%;
         animation: gradient 15s ease infinite;
         height: 100vh;
+    }
+    h1 {
+      color: #286f8b
+    }
+    h3 {
+      color: #286f8b
     }
     @keyframes gradient {
         0% {
@@ -22,11 +28,11 @@ permalink: /about/
         }
     }
 </style>
+<h1>About the Creators:</h1>
+<h3>Meet our Group:</h3>
 
-Meet our Group:
-
-- Shaurya Goel - Scrum Master
-- Alex Lu - Backend Developer
-- Haseeb Beg - Frontend Developer
-- Tirth Thakar - Frontend Developer
-- Evan Apari - Dev Ops Engineer
+- [Shaurya Goel - Scrum Master](https://github.com/STG-7)
+- [Alex Lu - Backend Developer](https://github.com/YLu-1258)
+- [Haseeb Beg - Frontend Developer](https://github.com/h4seeb-cmd)
+- [Tirth Thakar - Frontend Developer](https://github.com/Tirth-Thakkar)
+- [Evan Aparri - Dev Ops Engineer](https://github.com/chewyboba10)
