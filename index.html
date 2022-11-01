@@ -248,7 +248,7 @@ image: images/logo.png
                     }
                 }
                 
-                // generate mines
+                // Generate mines
                 let mRow = components.num_of_rows - 1,
                     mCol = components.num_of_cols - 1,
                     tMines = components.total;
@@ -384,7 +384,7 @@ image: images/logo.png
                         toCheck.shift();
                         }
                     
-                        // reveal all cells 
+                        // Reveal all cells 
                         if (toReveal.length > 0) {
                         for (let cell of toReveal) {
                             let thisRow = parseInt(cell[0]);
@@ -400,7 +400,7 @@ image: images/logo.png
                         }
                     }
                 
-                    // no remanining grids left, win condition
+                    // No remanining grids left, win condition
                     if (components.remaining == components.total) {
                     alert("YOU WIN!");
                     components.reset();
