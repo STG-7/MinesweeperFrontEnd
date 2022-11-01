@@ -10,12 +10,14 @@ permalink: /about/
         background-size: 400% 400%;
         animation: gradient 15s ease infinite;
         height: 100vh;
+        font-family: "Lucida Console", "Courier New", monospace;
     }
     h1 {
       color: #286f8b
+      font-family: "Lucida Console", "Courier New", monospace;
     }
     h3 {
-      color: #286f8b
+    font-family: "Lucida Console", "Courier New", monospace;
     }
     @keyframes gradient {
         0% {
