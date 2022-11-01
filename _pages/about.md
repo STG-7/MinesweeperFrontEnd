@@ -3,6 +3,8 @@ layout: about
 title: About the Creators
 permalink: /about/
 ---
+# Meet the Creators
+
 <style>
     body {
         background: linear-gradient(-45deg, #bbf0e5, rgb(196, 226, 238), rgb(176, 231, 231), rgb(97, 130, 226), rgb(176, 231, 231));
@@ -36,3 +38,5 @@ permalink: /about/
 - [Haseeb Beg - Frontend Developer](https://github.com/h4seeb-cmd)
 - [Tirth Thakar - Frontend Developer](https://github.com/Tirth-Thakkar)
 - [Evan Aparri - Dev Ops Engineer](https://github.com/chewyboba10)
+
+
