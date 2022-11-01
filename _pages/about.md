@@ -4,7 +4,7 @@ title: About the Creators
 permalink: /about/
 ---
 <script>
-    document.getElementById("cards").onmousemove = e => {
+document.getElementById("cards").onmousemove = e => {
   for(const card of document.getElementsByClassName("card")) {
     const rect = card.getBoundingClientRect(),
           x = e.clientX - rect.left,
@@ -12,21 +12,16 @@ permalink: /about/
 
     card.style.setProperty("--mouse-x", `${x}px`);
     card.style.setProperty("--mouse-y", `${y}px`);
-  };
-}
+  }
+};
 </script>
 
 <style>
-    :root {
-  --bg-color: rgb(0, 0, 20);
-  --card-color: rgb();
-}
-
 body {
-  background: linear-gradient(-45deg, #bbf0e5, rgb(130, 184, 209), rgb(132, 191, 191), rgb(97, 130, 226), rgb(130, 184, 209));
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
   align-items: center;
+  background: linear-gradient(-45deg, #bbf0e5, rgb(130, 184, 209), rgb(132, 191, 191), rgb(97, 130, 226), rgb(130, 184, 209));
+  background-size: 1000% 1000%;
+  animation: gradient 15s ease infinite;
   display: flex;
   height: 100vh;
   justify-content: center;
@@ -34,7 +29,15 @@ body {
   overflow: hidden;
   padding: 0px;
 }
- @keyframes gradient {
+
+#cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;  
+  max-width: 916px;
+  width: calc(100% - 20px);
+}
+@keyframes gradient {
         0% {
             background-position: 0% 50%;
         }
@@ -45,16 +48,8 @@ body {
             background-position: 0% 50%;
         }
     }
-#cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;  
-  max-width: 916px;
-  width: calc(100% - 20px);
-}
-
 #cards:hover > .card::after {
-  opacity: .3;
+  opacity: 1;
 }
 
 .card {
@@ -106,13 +101,12 @@ body {
 .card > .card-content {
   background-color: var(--card-color);
   border-radius: inherit;
-  position: fixed;
-  text-decoration: none;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   inset: 1px;
   padding: 10px;
+  position: absolute;
   z-index: 2;
 }
 
@@ -223,7 +217,7 @@ i {
   }
 }
 
-@media(max-width: 320px) {
+@media(max-width: 1000px) {
   .card {
     width: 100%;
   }
@@ -231,114 +225,119 @@ i {
 </style>
 
 <div id="cards">
-  <a href = "https://h4seeb-cmd.github.io/turtle/">
-  <div class="card">
-    <div class="card-content">
-      <div class="card-image">
-        <i class="fa-solid fa-turtle"></i>
-      </div>
-      <div class="card-info-wrapper">
-        <div class="card-info">
-          <i class="fa-duotone fa-turtle"></i>
-          <div class="card-info-title">
-            <h3>Haseeb Beg - Frontend </h3>  
-            <h4>Haseeb part time Frontend Developer full time gamer.</h4>
-          </div>    
+
+  <a id="card1" class="card"  href="https://h4seeb-cmd.github.io/turtle/" target="_blank">
+    <div class="card">
+      <div class="card-content">
+        <div class="card-image">
+          <i class="fa-solid fa-turtle"></i>
+        </div>
+        <div class="card-info-wrapper">
+          <div class="card-info">
+            <i class="fa-duotone fa-turtle"></i>
+            <div class="card-info-title">
+              <h3>Haseeb Beg - Frontend </h3>
+              <h4>Haseeb part time Frontend Developer full time gamer.</h4>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</a>
-  <a href = "">
-  <div class="card">
-    <div class="card-content">
-      <div class="card-image">
-        <i class="fa-duotone fa-computer"></i>
-      </div>
-      <div class="card-info-wrapper">
-        <div class="card-info">
+  </a>
+
+  <a id="card2" class="card" href="https://tirth-thakkar.github.io/APCSP-Blog/" target="_blank">
+    <div class="card">
+      <div class="card-content">
+        <div class="card-image">
           <i class="fa-duotone fa-computer"></i>
-          <div class="card-info-title">
-            <h3>Tirth Thakkar - Frontend</h3>  
-            <h4>I try to help out ... when things work. They never do.
-            </h4>
-          </div>    
-        </div>  
-      </div>
-    </div>
-  </div>
-  </a>
-  <a href = "https://stg-7.github.io/FastPagesSTG/">
-  <div class="card">
-    <div class="card-content">
-      <div class="card-image">
-        <i class="fa-duotone fa-toilet"></i>
-      </div>
-      <div class="card-info-wrapper">
-        <div class="card-info">
-          <i class="fa-solid fa-toilet-paper-under"></i>
-          <div class="card-info-title">
-            <h3>Shaurya Goel - Srum Master</h3>  
-            <h4>"I'll be back" - Arnold Schwarzenegger</h4>
-          </div>    
+        </div>
+        <div class="card-info-wrapper">
+          <div class="card-info">
+            <i class="fa-duotone fa-computer"></i>
+            <div class="card-info-title">
+              <h3>Tirth Thakkar - Frontend</h3>
+              <h4>I try to help out ... when things work. They never do.
+              </h4>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   </a>
-  <a href = "https://chewyboba10.github.io/sushi-burrito/">
-  <div class="card">
-    <div class="card-content">
-      <div class="card-image">
-        <i class="fa-duotone fa-starship-freighter"></i>
+
+  <a id="card3" class="card" href="https://stg-7.github.io/FastPagesSTG/" target="_blank">
+    <div class="card">
+      <div class="card-content">
+        <div class="card-image">
+          <i class="fa-duotone fa-toilet"></i>
+        </div>
+        <div class="card-info-wrapper">
+          <div class="card-info">
+            <i class="fa-solid fa-toilet-paper-under"></i>
+            <div class="card-info-title">
+              <h3>Shaurya Goel - Srum Master</h3>
+              <h4>"I'll be back" - Arnold Schwarzenegger</h4>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="card-info-wrapper">
-        <div class="card-info">
+    </div>
+  </a>
+
+  <a id="card4" class="card" href="https://chewyboba10.github.io/sushi-burrito/" target="_blank">
+    <div class="card">
+      <div class="card-content">
+        <div class="card-image">
           <i class="fa-duotone fa-starship-freighter"></i>
-          <div class="card-info-title">
-            <h3>Evan Appari - Dev Ops</h3>  
-            <h4>So good you don't notice, until you do.
-            </h4>
-          </div>    
+        </div>
+        <div class="card-info-wrapper">
+          <div class="card-info">
+            <i class="fa-duotone fa-starship-freighter"></i>
+            <div class="card-info-title">
+              <h3>Evan Appari - Dev Ops</h3>
+              <h4>So good you don't notice, until you do.
+              </h4>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   </a>
-  <a href = "https://ylu-1258.github.io/YLu-Blog/">
-  <div class="card">
-    <div class="card-content">
-      <div class="card-image">
-        <i class="fa-solid fa-rectangle-terminal"></i>
-      </div>
-      <div class="card-info-wrapper">
-        <div class="card-info">
-          <i class="fa-regular fa-rectangle-terminal"></i>
-          <div class="card-info-title">
-            <h3>Alex Lu - Backend</h3>  
-            <h4>Hard carry the whole way through. Resident API expert.</h4>
-          </div>    
+  <a id="card5" class="card" href="https://ylu-1258.github.io/YLu-Blog/" target="_blank">
+    <div class="card">
+      <div class="card-content">
+        <div class="card-image">
+          <i class="fa-solid fa-rectangle-terminal"></i>
+        </div>
+        <div class="card-info-wrapper">
+          <div class="card-info">
+            <i class="fa-regular fa-rectangle-terminal"></i>
+            <div class="card-info-title">
+              <h3>Alex Lu - Backend</h3>
+              <h4>Hard carry the whole way through. Resident API expert.</h4>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  </a>  
-  <a href = "https://github.com/YLu-1258/fr0st" >
-  <div class="card">
-    <div class="card-content">
-      <div class="card-image">
-        <i class="fa-solid fa-land-mine-on"></i>
-      </div>
-      <div class="card-info-wrapper">
-        <div class="card-info">
+  </a>
+
+  <a id="card6" class="card" href="https://github.com/YLu-1258/fr0st" target="_blank">
+    <div class="card">
+      <div class="card-content">
+        <div class="card-image">
           <i class="fa-solid fa-land-mine-on"></i>
-          <div class="card-info-title">
-            <h3>Backend</h3>  
-            <h4>Pop open the hood and check out the back. The backend to our amazing game.</h4>
-          </div>    
+        </div>
+        <div class="card-info-wrapper">
+          <div class="card-info">
+            <i class="fa-solid fa-land-mine-on"></i>
+            <div class="card-info-title">
+              <h3>Backend</h3>
+              <h4>Pop open the hood and check out the back. The backend to our amazing game.</h4>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </a>
 </div>
-</a>
