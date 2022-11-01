@@ -6,176 +6,426 @@ image: images/logo.png
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <!--code for the login and registration forms that take username and password.-->
 <body>
-<style>
-    #login {
-        background: white;
-        border-radius: 18px;
-        margin-top: 5%;
-        margin-bottom: 5%;
-        margin-left: 15%;
-        margin-right: 15%;
-    }
-    #register {
-        background: white;
-        border-radius: 18px;
-        margin-top: 5%;
-        margin-bottom: 5%;
-        margin-left: 15%;
-        margin-right: 15%;
-    }
-    #login_invalid p {
-        color: red;
-    }
-    form{
-        margin-top: 2em;
-        margin-bottom: 2em;
-        margin-left: auto;
-        margin-right: auto;
-        width: 10em
-    }
-</style>
+    <style>
+        
+        #home div {
+            width: 100%
+        }
+        #field {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 30px;
+        }
+        #title h2 {
+            font-weight:800;
+            font-size: large;
+        }
+        #field .cell {
+            background-color: rgb(136, 233, 255);
+            box-sizing: border-box;
+            border-radius: 7px;
+            border: 2px solid rgb(77, 65, 255);
+            font-size: 40px;
+            text-align: center;
+            cursor: pointer;
+        }
+        #minesweeper {
+            background-color: white;
+            border-radius: 15px;
+            border: 5px solid transparent;
+            padding: 70px;
+        }
+        .gradient-border {
+            --borderWidth: 10px;
+            background: #1D1F20;
+            position: relative;
+            border-radius: var(--borderWidth);
+        }
+        .gradient-border:after {
+            content: '';
+            position: absolute;
+            top: calc(-1 * var(--borderWidth));
+            left: calc(-1 * var(--borderWidth));
+            height: calc(100% + var(--borderWidth) * 2);
+            width: calc(100% + var(--borderWidth) * 2);
+            background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+            border-radius: calc(2 * var(--borderWidth));
+            z-index: -1;
+            animation: animatedgradient 3s ease alternate infinite;
+            background-size: 300% 300%;
+        }
+        @keyframes animatedgradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        #login {
+            background: white;
+            border-radius: 18px;
+            margin-top: 5%;
+            margin-bottom: 5%;
+            margin-left: 15%;
+            margin-right: 15%;
+        }
+        #register {
+            background: white;
+            border-radius: 18px;
+            margin-top: 5%;
+            margin-bottom: 5%;
+            margin-left: 15%;
+            margin-right: 15%;
+        }
+        #login_invalid p {
+            color: red;
+        }
+        form{
+            margin-top: 2em;
+            margin-bottom: 2em;
+            margin-left: auto;
+            margin-right: auto;
+            width: 10em
+        }
+    </style>
 
-<section id="minesweeper" style="display:none;">
-    <div id="box">
-         <h2>MINESWEEPER!</h2><hr><br><br>
-         <p id="current_usr">Current User: </p>
-            <div id="field"></div>
+    <section id="minesweeper" style="display:none;" class="gradient-border">
+        <h2 style="text-align:center;" class="title">MINESWEEPER!</h2>
+        <p id="current_usr" style="text-align:center;">Current User: </p> 
+        <div id="field">
+            
+        </div> 
+    </section>
+
+    <section>
+        <section id="login" style="display:block;" class="gradient-border child">
+        <!-- Login form for Minesweeper game, set display to false after successful login-->
+            <form>
+                <br>
+                <h2>Login</h2>
+                <label for="user">Username / Nombre de Usario:</label><br>
+                <input type="text" id="usr_login" name="user" value=""><br>
+                <label for="pass">Password / Clave:</label><br>
+                <input type="password" id="pwd_login" name="pass" value=""><br><br>
+                <p id="login_invalid"> </p>
+                <!--use a button instead of input-->
+                <button id ="login_submit" type='button'>SUBMIT/ENVIAR</button>
+                <script>
+                    $("#login_submit").click(function() {
+                        let usr = document.getElementById("usr_login").value;
+                        let pwd = document.getElementById("pwd_login").value;
+                        let auth_url = "https://frost.nighthawkcodescrums.gq/api/auth/" + usr + "/" + pwd + "/verify";
+                        const headers = {
+                                method: 'GET', // *GET, POST, PUT, DELETE, etc.
+                                mode: 'cors', // no-cors, *cors, same-origin
+                                cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+                                credentials: 'omit', // include, *same-origin, omit
+                                headers: {'Content-Type': 'application/json'},
+                        };
+                        var xhr = new XMLHttpRequest();
+                        xhr.open("GET", auth_url);
+
+                        xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status == 200) {
+                            let data = xhr.responseText;
+                            console.log(data);
+                            console.log(typeof data);
+                            if (data == "true\n") {
+                                document.getElementById("login").style.display = "none";
+                                document.getElementById("register").style.display = "none";
+                                document.getElementById("minesweeper").style.display = "block";
+                                document.getElementById("current_usr").innerHTML = "Current User: <br>" + document.getElementById("usr_login").value;
+                            }
+                            else {
+                                document.getElementById("login_invalid").style.color = "red";
+                                document.getElementById("login_invalid").style.fontWeight = 1000    ;
+                                document.getElementById("login_invalid").innerHTML= "Login Credentials Incorrect, please try again";
+                            };
+                        }};
+                        xhr.send();
+                    });
+                </script>
+                
+            </form>
             <br>
-          <div id="lost" style="display: none;">
-            <h3>You got bombed!</h3>
-            <button id="new-game-button" type="button" onclick="startGame()">Start Again</button>
-          </div>         
-    </div>
-</section>
-<section id="login" style="display:block;">
-<!-- Login form for Minesweeper game, set display to false after successful login-->
-    <form>
-        <br>
-        <h2>Login</h2>
-        <label for="user">Username / Nombre de Usario:</label><br>
-        <input type="text" id="usr_login" name="user" value=""><br>
-        <label for="pass">Password / Clave:</label><br>
-        <input type="password" id="pwd_login" name="pass" value=""><br><br>
-        <p id="login_invalid"> </p>
-        <!--use a button instead of input-->
-        <button id ="login_submit" type='button'>SUBMIT/ENVIAR</button>
-        <script>
-            $("#login_submit").click(function() {
-                let usr = document.getElementById("usr_login").value;
-                let pwd = document.getElementById("pwd_login").value;
-                let auth_url = "https://frost.nighthawkcodescrums.gq/api/auth/" + usr + "/" + pwd + "/verify";
-                const headers = {
-                        method: 'GET', // *GET, POST, PUT, DELETE, etc.
-                        mode: 'cors', // no-cors, *cors, same-origin
-                        cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
-                        credentials: 'omit', // include, *same-origin, omit
-                        headers: {'Content-Type': 'application/json'},
-                };
-                var xhr = new XMLHttpRequest();
-                xhr.open("GET", auth_url);
+        </section>
 
-                xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status == 200) {
-                    let data = xhr.responseText;
-                    console.log(data);
-                    console.log(typeof data);
-                    if (data == "true\n") {
-                        document.getElementById("login").style.display = "none";
-                        document.getElementById("register").style.display = "none";
-                        document.getElementById("minesweeper").style.display = "block";
-                        document.getElementById("current_usr").innerHTML = "Current User: " + document.getElementById("usr_login").value;
+        <section id="register" style="display:block;" class="gradient-border child">
+        <!-- Registration form for Minesweeper game, set display to false after successful login-->
+            <form method="POST">
+                <br>
+                <h2>Register</h2>
+                <label for="user">Username / Nombre de Usario:</label><br>
+                <input type="text" id="rg_usr" name="user" value=""><br>
+                <label for="pass">Password / Clave:</label><br>
+                <input type="password" id="rg_pwd" name="pass" value=""><br><br>
+                <p id="reg_message"> </p>
+                <button id ="registration_submit" type='button'>SUBMIT/ENVIAR</button>
+                <script>
+                    $("#registration_submit").click(function() {
+                        let usr = document.getElementById("rg_usr").value;
+                        let pwd = document.getElementById("rg_pwd").value;
+                        let auth_url = "https://frost.nighthawkcodescrums.gq/api/auth/" + usr + "/" + pwd + "/register";
+                        const headers = {
+                                method: 'GET', // *GET, POST, PUT, DELETE, etc.
+                                mode: 'cors', // no-cors, *cors, same-origin
+                                cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+                                credentials: 'omit', // include, *same-origin, omit
+                                headers: {'Content-Type': 'application/json'},
+                        };
+                        var xhr = new XMLHttpRequest();
+                        xhr.open("GET", auth_url);
+
+                        xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status == 200) {
+                            let data = xhr.responseText;
+                            console.log(data);
+                            console.log(typeof data);
+                            document.getElementById("reg_message").style.color = "green";
+                            document.getElementById("reg_message").style.fontWeight = 1000    ;
+                            document.getElementById("reg_message").innerHTML= "User \"" + document.getElementById("rg_usr").value + "\" has been created with the provided credentials";
+                            };
+                        }
+                        xhr.send();
+                        });
+                </script>
+            </form>
+            <br>
+
+        </section>
+    </section>
+    <script>
+        var components = {
+            num_of_rows : 10,
+            num_of_cols : 10,
+            total : 15,
+            remaining : 0,
+            display : {1: 'blue', 2: 'green', 3: 'red', 4: 'purple', 5: 'maroon', 6: 'turquoise', 7: 'black', 8: 'grey', "bomb" : '💣', "flag" : "🚩"},
+            board : [],
+            reset : () => {
+                // Reset the gameboard, set number of remaining unclicked mines to the product of rows and columns
+                components.board = [];
+                components.remaining = components.num_of_rows * components.num_of_cols;
+                
+                // establish the proper width value for the css based on the established colomuns
+                let wrap = document.getElementById("field"),
+                    cssWidth = (100 / components.num_of_cols);
+                    wrap.innerHTML = "";
+                
+                // Generate board by looping through rows and coloumns
+                for (let row=0; row<components.num_of_rows; row++) {
+                    components.board.push([]); 
+                    for (let col=0; col<components.num_of_cols; col++) {
+                        // add the cells to the board
+                        components.board[row].push({ 
+                            r : false, // revealed
+                            x : false, // marked
+                            m : false, // mine
+                            a : 0, // adjacent
+                            c : document.createElement("div")
+                        });
+                        console.log("success")
+                
+                        // add to the html
+                        let cell = components.board[row][col].c;
+                        cell.classList.add("cell");
+                        cell.id = "mine-" + row + "-" + col;
+                        cell.dataset.row = row;
+                        cell.dataset.col = col;
+                        cell.onclick = () => { components.open(cell); };
+                        cell.oncontextmenu = (e) => {
+                            e.preventDefault();
+                            components.mark(cell);
+                        };
+                        cell.style.width = cssWidth + "%";
+                        cell.style.height = cssWidth + "%";
+                        cell.innerHTML = "&nbsp;";
+                        wrap.appendChild(cell);
+                    }
+                }
+                
+                // generate mines
+                let mRow = components.num_of_rows - 1,
+                    mCol = components.num_of_cols - 1,
+                    mToLay = components.total;
+                while (mToLay > 0) {
+                    let row = Math.floor(Math.random() * mRow);
+                    let col = Math.floor(Math.random() * mCol);
+                    if (!components.board[row][col].m) {
+                        components.board[row][col].m = true;
+                        mToLay--;
+                    }
+                }
+                
+                // (B5) CALCULATE NUMBER OF ADJACENT componentsS FOR EACH CELL
+                // LOOP THROUGH ROW-BY-ROW
+                for (let row=0; row<components.num_of_rows; row++) {
+                    let lastRow = row - 1,
+                        nextRow = row + 1;
+                    if (nextRow == components.num_of_rows) { nextRow = -1; }
+                
+                    // LOOP THROUGH CELLS OF EACH ROW
+                    for (let col=0; col<components.num_of_cols; col++) {
+                    let lastCol = col - 1,
+                        nextCol = col + 1;
+                    if (nextCol == components.num_of_cols) { nextCol = -1; }
+                
+                    // CALCULATE ONLY IF CELL DOES NOT CONTAIN components
+                    if (!components.board[row][col].m) {
+                        // ADD NUMBER OF componentsS IN LAST ROW
+                        if (lastRow != -1) {
+                        if (lastCol != -1) { if (components.board[lastRow][lastCol].m) { components.board[row][col].a++; } }
+                        if (components.board[lastRow][col].m) { components.board[row][col].a++; }
+                        if (nextCol != -1) { if (components.board[lastRow][nextCol].m) { components.board[row][col].a++; } }
+                        }
+                
+                        // ADD NUMBER OF componentsS IN CURRENT ROW
+                        if (lastCol != -1) { if (components.board[row][lastCol].m) { components.board[row][col].a++; } }
+                        if (nextCol != -1) { if (components.board[row][nextCol].m) { components.board[row][col].a++; } }
+                
+                        // ADD NUMBER OF componentsS IN NEXT ROW
+                        if (nextRow != -1) {
+                        if (lastCol != -1) { if (components.board[nextRow][lastCol].m) { components.board[row][col].a++; } }
+                        if (components.board[nextRow][col].m) { components.board[row][col].a++; }
+                        if (nextCol != -1) { if (components.board[nextRow][nextCol].m) { components.board[row][col].a++; } }
+                        }
+                    }
+                
+                    // CHEAT - SHOW NUMBER OF ADJACENT componentsS ON BOARD
+                    // if (components.board[row][col].a != 0) { components.board[row][col].c.innerHTML = components.board[row][col].a ; }
+                    }
+                }
+            },
+            mark : (cell) => {
+                // (C1) GET COORDS OF SELECTED CELL
+                let row = cell.dataset.row,
+                    col = cell.dataset.col;
+
+                // (C2) MARK/UNMARK ONLY IF CELL IS STILL HIDDEN
+                if (!components.board[row][col].r) {
+                    if (components.board[row][col].x) {
+                        components.board[row][col].c.innerHTML = "&nbsp;";
+                        components.board[row][col].x = !components.board[row][col].x;
                     }
                     else {
-                        document.getElementById("login_invalid").style.color = "red";
-                        document.getElementById("login_invalid").style.fontWeight = 1000    ;
-                        document.getElementById("login_invalid").innerHTML= "Login Credentials Incorrect, please try again";
-                    };
-                }};
-                xhr.send();
-            });
-        </script>
-        
-    </form>
-    <br>
-</section>
-
-<section id="register" style="display:block;">
-<!-- Registration form for Minesweeper game, set display to false after successful login-->
-    <form method="POST">
-        <br>
-        <h2>Register</h2>
-        <label for="user">Username / Nombre de Usario:</label><br>
-        <input type="text" id="rg_usr" name="user" value=""><br>
-        <label for="pass">Password / Clave:</label><br>
-        <input type="password" id="rg_pwd" name="pass" value=""><br><br>
-        <p id="reg_message"> </p>
-        <button id ="registration_submit" type='button'>SUBMIT/ENVIAR</button>
-        <script>
-            $("#registration_submit").click(function() {
-                let usr = document.getElementById("rg_usr").value;
-                let pwd = document.getElementById("rg_pwd").value;
-                let auth_url = "https://frost.nighthawkcodescrums.gq/api/auth/" + usr + "/" + pwd + "/register";
-                const headers = {
-                        method: 'GET', // *GET, POST, PUT, DELETE, etc.
-                        mode: 'cors', // no-cors, *cors, same-origin
-                        cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
-                        credentials: 'omit', // include, *same-origin, omit
-                        headers: {'Content-Type': 'application/json'},
-                };
-                var xhr = new XMLHttpRequest();
-                xhr.open("GET", auth_url);
-
-                xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status == 200) {
-                    let data = xhr.responseText;
-                    console.log(data);
-                    console.log(typeof data);
-                    document.getElementById("reg_message").style.color = "green";
-                    document.getElementById("reg_message").style.fontWeight = 1000    ;
-                    document.getElementById("reg_message").innerHTML= "User \"" + document.getElementById("rg_usr").value + "\" has been created with the provided credentials";
-                    };
+                        components.board[row][col].c.innerHTML = "🚩";
+                        components.board[row][col].x = !components.board[row][col].x;
+                    }
+                    //
                 }
-                xhr.send();
-                });
-        </script>
-    </form>
-    <br>
+            },
+            open : (cell) => {
+                    // Get cell coordinates
+                    let row = cell.dataset.row,
+                        col = cell.dataset.col;
+                    // Do nothing if the cell is marked
+                    if (components.board[row][col].x) {
+                        return ;
+                    }
 
-</section>
+                    // End game if mine is selected
+                    if (!components.board[row][col].x && components.board[row][col].m) {
+                        components.revealMines();
+                        setTimeout(() => {
+                        alert("You have clicked on a mine!");
+                        components.reset();
+                        }, 2);
+                    }
+                
+                    // (D3) REVEAL SELECTED CELL + ALL EMPTY ADJACENT CELLS
+                    else {
+                        // (D3A) FLAGS - WHICH CELLS SHOULD WE AUTOMATICALLY REVEAL?
+                        let toReveal = [], // ALL CELLS TO REVEAL
+                            toCheck = [], // ALL CELLS TO CHECK
+                            checked = []; // ALL CELL THAT HAVE ALREADY BEEN CHECKED
+                        for (let i=0; i<components.num_of_rows; i++) { checked.push({}); }
+                        toCheck.push([row, col]);
+                    
+                        // (D3B) LOOP & CHECK - ADD CELLS TO REVEAL
+                        while (toCheck.length>0) {
+                        // CURRENT "CHECK CELL" COORDINATES
+                        let thisRow = parseInt(toCheck[0][0]),
+                            thisCol = parseInt(toCheck[0][1]);
 
-<style>
-        /* (A) MINESWEEPER WRAPPER */
-    #field {
-    display: flex;
-    flex-wrap: wrap;
-    }
-    
-    /* (B) MINESWEEPER CELLS */
-    #field .cell {
-    box-sizing: border-box;
-    background: #ddd;
-    border: 1px solid #ccc;
-    font-size: 40px;
-    text-align: center;
-    cursor: pointer;
-    }
-    #field .cell.reveal { background: #f7f7f7; }
-</style>
-
-<script>
-    var components = {
-    num_of_rows : 12,
-    num_of_cols : 24,
-    num_of_bombs : 55,
-    bomb : '💣',
-    alive : true,
-    remaining : 0,
-    colors : {1: 'blue', 2: 'green', 3: 'red', 4: 'purple', 5: 'maroon', 6: 'turquoise', 7: 'black', 8: 'grey'},
-    board : []
-    }
-
-    
-</script>
+                        // HAS components, ALREADY REVEALED, MARKED - DO NOTHING
+                        if (components.board[thisRow][thisCol].m || components.board[thisRow][thisCol].r || components.board[thisRow][thisCol].x) {}
+                        else {
+                            // ADD CELL TO REVEAL
+                            if (!checked[thisRow][thisCol]) { toReveal.push([thisRow, thisCol]); }
+                    
+                            // CELL DOES NOT HAVE ADJ componentsS - CHECK NEIGHBOURS
+                            if (components.board[thisRow][thisCol].a == 0) {
+                            // PREVIOUS & NEXT CELL COORDINATES
+                            let lastRow = thisRow - 1,
+                                nextRow = thisRow + 1,
+                                lastCol = thisCol - 1,
+                                nextCol = thisCol + 1;
+                            if (nextRow == components.num_of_rows) { nextRow = -1; }
+                            if (nextCol == components.num_of_cols) { nextCol = -1; }
+                    
+                            // LAST ROW
+                            if (lastRow != -1) {
+                                if (lastCol != -1 && !checked[lastRow][lastCol]) { toCheck.push([lastRow, lastCol]); }
+                                if (!checked[lastRow][thisCol]) { toCheck.push([lastRow, thisCol]); }
+                                if (nextCol != -1 && !checked[lastRow][nextCol]) { toCheck.push([lastRow, nextCol]); }
+                            }
+                    
+                            // CURRENT ROW
+                            if (lastCol != -1 && !checked[thisRow][lastCol]) { toCheck.push([thisRow, lastCol]); }
+                            if (nextCol != -1 && !checked[thisRow][nextCol]) { toCheck.push([thisRow, nextCol]); }
+                    
+                            // NEXT ROW
+                            if (nextRow != -1) {
+                                if (lastCol != -1 && !checked[nextRow][lastCol]) { toCheck.push([nextRow, lastCol]); }
+                                if (!checked[nextRow][thisCol]) { toCheck.push([nextRow, thisCol]); }
+                                if (nextCol != -1 && !checked[nextRow][nextCol]) { toCheck.push([nextRow, nextCol]); }
+                            }
+                            }
+                        }
+                    
+                        // MOVE ON - CHECK NEXT CELL
+                        checked[thisRow][thisCol] = true;
+                        toCheck.shift();
+                        }
+                    
+                        // (D3C) AUTOMATICALLY REVEAL CELLS (IF ANY)
+                        if (toReveal.length > 0) {
+                        for (let cell of toReveal) {
+                            let thisRow = parseInt(cell[0]);
+                            let thisCol = parseInt(cell[1]);
+                            components.board[thisRow][thisCol].r = true;
+                            if (components.board[thisRow][thisCol].a != 0) { 
+                            components.board[thisRow][thisCol].c.innerHTML = components.board[thisRow][thisCol].a;
+                            components.board[thisRow][thisCol].c.style.color = components.display[components.board[thisRow][thisCol].a];
+                            }
+                            components.board[thisRow][thisCol].c.classList.add("reveal");
+                            components.board[thisRow][thisCol].c.style.backgroundColor = "rgba(12, 177, 214,.7)";
+                            components.remaining = components.remaining - 1;
+                        }
+                    }
+                
+                    // (D3D) NO CELLS LEFT TO OPEN - WIN!
+                    if (components.remaining == components.total) {
+                    alert("YOU WIN!");
+                    components.reset();
+                    }
+                }
+                },
+            revealMines : () => {
+            for (let row=0; row<components.num_of_rows; row++) {
+                for (let col=0; col<components.num_of_cols; col++) {
+                    if (components.board[row][col].m) {
+                        components.board[row][col].c.innerHTML = components.display["bomb"];
+                    }
+                }
+            }
+        }
+        };
+        window.addEventListener("DOMContentLoaded", components.reset);
+    </script>
 
 </body>
-
