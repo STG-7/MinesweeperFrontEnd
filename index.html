@@ -273,9 +273,9 @@ image: images/logo.png
                         nextCol = col + 1;
                     if (nextCol == components.num_of_cols) { nextCol = -1; }
                 
-                    // if cell is not a mine
+                    // If cell is not a mine
                     if (!components.board[row][col].m) {
-                        // sum mines in last row
+                        // Sum mines in last row
                         if (lastRow != -1) {
                         if (lastCol != -1) { if (components.board[lastRow][lastCol].m) { components.board[row][col].a++; } }
                         if (components.board[lastRow][col].m) { components.board[row][col].a++; }
