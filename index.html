@@ -347,7 +347,7 @@ image: images/logo.png
                         let thisRow = parseInt(toCheck[0][0]),
                             thisCol = parseInt(toCheck[0][1]);
 
-                        // if it's a mine, revealed, or marked, do nothing
+                        // If it's a mine, revealed, or marked, do nothing 
                         if (components.board[thisRow][thisCol].m || components.board[thisRow][thisCol].r || components.board[thisRow][thisCol].x) {}
                         else {
                             // mark cell for revealing
