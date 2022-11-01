@@ -1,5 +1,5 @@
 ---
-layout: about
+layout: default
 title: About the Creators
 permalink: /about/
 ---
@@ -39,5 +39,3 @@ permalink: /about/
 - [Haseeb Beg - Frontend Developer](https://github.com/h4seeb-cmd)
 - [Tirth Thakar - Frontend Developer](https://github.com/Tirth-Thakkar)
 - [Evan Aparri - Dev Ops Engineer](https://github.com/chewyboba10)
-
-
