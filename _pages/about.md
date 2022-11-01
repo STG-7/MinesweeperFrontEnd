@@ -3,7 +3,6 @@ layout: about
 title: About the Creators
 permalink: /about/
 ---
-# Meet the Creators
 
 <style>
     body {
