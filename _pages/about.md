@@ -1,6 +1,5 @@
 ---
-layout: default
+layout: about
 title: About the Creators
 permalink: /about/
 ---
-{% include about.html %}
