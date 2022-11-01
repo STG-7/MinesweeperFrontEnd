@@ -1,292 +1,140 @@
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE-edge">
-        <meta name="viewport" content="width-device-width, initial-scale=1.0">
-    </head>
-    <style>
-        body {
-          align-items: center !important;
-          background: linear-gradient(-45deg, #bbf0e5, rgb(130, 184, 209), rgb(132, 191, 191), rgb(97, 130, 226), rgb(130, 184, 209)) !important;
-          background-size: 1000% 1000%;
-          animation: gradient 15s ease infinite;
-          display: flex !important;
-          height: 100vh !important;
-          justify-content: center !important;
-          margin: 0px !important;
-          overflow: hidden !important;
-          padding: 0px !important;
-        }
-        #cards {
-          display: flex !important;
-          flex-wrap: wrap !important;
-          gap: 8px!important;  
-          max-width: 916px !important;
-          width: calc(100% - 20px) !important;
-        }
-        @keyframes gradient {
-                0% {
-                    background-position: 0% 50% !important;
-                }
-                50% {
-                    background-position: 100% 50% !important;
-                }
-                100% {
-                    background-position: 0% 50% !important;
-                }
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>About the Creators | Minesweeper</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="About the Creators" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Winter Themed Minesweeper" />
+<meta property="og:description" content="Winter Themed Minesweeper" />
+<link rel="canonical" href="https://stg-7.github.io/MinesweeperFrontEnd/about/" />
+<meta property="og:url" content="https://stg-7.github.io/MinesweeperFrontEnd/about/" />
+<meta property="og:site_name" content="Minesweeper" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="About the Creators" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"Winter Themed Minesweeper","headline":"About the Creators","name":"Minesweeper","url":"https://stg-7.github.io/MinesweeperFrontEnd/about/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/MinesweeperFrontEnd/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://stg-7.github.io/MinesweeperFrontEnd/feed.xml" title="Minesweeper" /><link rel="shortcut icon" type="image/x-icon" href="/MinesweeperFrontEnd/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
             }
-        #cards:hover > .card::after {
-          opacity: 1 !important;
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/MinesweeperFrontEnd/">Minesweeper</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/MinesweeperFrontEnd/about/">About the Creators</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <style>
+    body {
+        background: linear-gradient(-45deg, #bbf0e5, rgb(196, 226, 238), rgb(176, 231, 231), rgb(97, 130, 226), rgb(176, 231, 231));
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+        height: 100vh;
+        font-family: "Lucida Console", "Courier New", monospace;
+    }
+    h1 {
+      color: #286f8b
+      font-family: "Lucida Console", "Courier New", monospace;
+    }
+    h3 {
+    font-family: "Lucida Console", "Courier New", monospace;
+    }
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
         }
-        .card {
-          background-color: rgba(255, 255, 255, 0.1) !important;
-          border-radius: 10px !important;
-          cursor: pointer !important;
-          display: flex !important;
-          height: 260px !important;
-          flex-direction: column !important;
-          position: relative !important;
-          width: 300px !important;  
+        50% {
+            background-position: 100% 50%;
         }
-        .card:hover::before {
-          opacity: 1 !important;
+        100% {
+            background-position: 0% 50%;
         }
-        .card::before,
-        .card::after {
-          border-radius: inherit !important;
-          content: "" !important;
-          height: 100% !important;
-          left: 0px !important;
-          opacity: 0 !important;
-          position: absolute !important;
-          top: 0px !important;
-          transition: opacity 500ms !important;
-          width: 100% !important;
-        }
-        .card::before {
-          background: radial-gradient(
-            800px circle at var(--mouse-x) var(--mouse-y), 
-            rgba(255, 255, 255, 0.06),
-            transparent 40%
-          )  !important;
-          z-index: 3  !important;
-        }
-        .card::after {  
-          background: radial-gradient(
-            600px circle at var(--mouse-x) var(--mouse-y), 
-            rgba(255, 255, 255, 0.4),
-            transparent 40%
-          )  !important;
-          z-index: 1  !important;
-        }
-        .card > .card-content {
-          background-color: var(--card-color)  !important;
-          border-radius: inherit  !important;
-          display: flex  !important;
-          flex-direction: column  !important;
-          flex-grow: 1  !important;
-          inset: 1px  !important;
-          padding: 10px  !important;
-          position: absolute  !important;
-          z-index: 2  !important;
-        }
-        /* -- ↓ ↓ ↓ extra card content styles ↓ ↓ ↓ -- */
-        h1, h2, h3, h4, span {
-          color: rgb(240, 240, 240)  !important;
-          font-family: "Rubik", sans-serif  !important;
-          font-weight: 400  !important;
-          margin: 0px  !important;
-        }
-        i {  
-          color: rgb(240, 240, 240)  !important;
-        }
-        .card-image {
-          align-items: center  !important;
-          display: flex  !important;
-          height: 140px  !important;
-          justify-content: center  !important;
-          overflow: hidden  !important;
-        }
-        .card-image > i {
-          font-size: 6em  !important;
-          opacity: 0.25  !important;
-        }
-        .card-info-wrapper {
-          align-items: center  !important;
-          display: flex  !important;
-          flex-grow: 1  !important;
-          justify-content: flex-start  !important;
-          padding: 0px 20px  !important;
-        }
-        .card-info {
-          align-items: flex-start  !important;
-          display: flex  !important;
-          gap: 10px  !important;
-        }
-        .card-info > i {  
-          font-size: 1em  !important;
-          height: 20px  !important;
-          line-height: 20px  !important;
-        }
-        .card-info-title > h3 {
-          font-size: 1.1em  !important;
-          line-height: 20px  !important;
-        }
-        .card-info-title > h4 {
-          color: rgba(255, 255, 255, 0.5)  !important;
-          font-size: 0.85em  !important;
-          margin-top: 8px  !important;
-        }
-        /* -- ↓ ↓ ↓ some responsiveness ↓ ↓ ↓ -- */
-        @media(max-width: 1000px) {
-          body {
-            align-items: flex-start  !important;  
-            overflow: auto  !important;
-          } 
-          #cards {    
-            max-width: 1000px  !important;
-            padding: 10px 0px  !important;
-          }
-          .card {
-            flex-shrink: 1  !important;
-            width: calc(50% - 4px)  !important;
-          }
-        }
-        @media(max-width: 500px) {
-          .card {
-            height: 180px  !important;
-          }
-          .card-image {
-            height: 80px  !important;  
-          }
-          .card-image > i {
-            font-size: 3em  !important;
-          } 
-          .card-info-wrapper {
-            padding: 0px 10px  !important;
-          }
-          .card-info > i { 
-            font-size: 0.8em  !important; 
-          } 
-          .card-info-title > h3 {
-            font-size: 0.9em  !important;
-          }        
-          .card-info-title > h4 {
-            font-size: 0.8em  !important;
-            margin-top: 4px  !important;
-          }
-        }        
-        @media(max-width: 1000px) {
-          .card {
-            width: 100%  !important;
-          }
-        } 
-    </style>
-    <body>
-        <script>
-            document.getElementById("cards").onmousemove = e => {
-                for(const card of document.getElementsByClassName("card")) {
-                    const rect = card.getBoundingClientRect(),
-                        x = e.clientX - rect.left,
-                        y = e.clientY - rect.top;          
-                    card.style.setProperty("--mouse-x", `${x}px`);
-                    card.style.setProperty("--mouse-y", `${y}px`);
-            }
-          };               
-        </script>
-        <div id="cards">
-            <a id="card1" class="card"  href="https://h4seeb-cmd.github.io/turtle/" target="_blank">
-              <div class="card">
-                <div class="card-content">
-                  <div class="card-image">
-                    <i class="fa-solid fa-turtle"></i>
-                  </div>
-                  <div class="card-info-wrapper">
-                    <div class="card-info">
-                      <i class="fa-duotone fa-turtle"></i>
-                      <div class="card-info-title">
-                        <h3>Haseeb Beg - Frontend Developer</h3>
-                        <h4>Haseeb part time Frontend Developer full time gamer.</h4>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>          
-            <a id="card2" class="card" href="https://tirth-thakkar.github.io/APCSP-Blog/" target="_blank">
-              <div class="card">
-                <div class="card-content">
-                  <div class="card-image">
-                    <i class="fa-duotone fa-computer"></i>
-                  </div>
-                  <div class="card-info-wrapper">
-                    <div class="card-info">
-                      <i class="fa-duotone fa-computer"></i>
-                      <div class="card-info-title">
-                        <h3>Tirth Thakkar - Frontend Developer</h3>
-                        <h4>I try to help out ... when things work. They never do.
-                        </h4>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>          
-            <a id="card3" class="card" href="https://stg-7.github.io/FastPagesSTG/" target="_blank">
-              <div class="card">
-                <div class="card-content">
-                  <div class="card-image">
-                    <i class="fa-duotone fa-toilet"></i>
-                  </div>
-                  <div class="card-info-wrapper">
-                    <div class="card-info">
-                      <i class="fa-solid fa-toilet-paper-under"></i>
-                      <div class="card-info-title">
-                        <h3>Shaurya Goel - Scrum Master</h3>
-                        <h4>"I'll be back" - Arnold Schwarzenegger</h4>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>         
-            <a id="card4" class="card" href="https://chewyboba10.github.io/sushi-burrito/" target="_blank">
-              <div class="card">
-                <div class="card-content">
-                  <div class="card-image">
-                    <i class="fa-duotone fa-starship-freighter"></i>
-                  </div>
-                  <div class="card-info-wrapper">
-                    <div class="card-info">
-                      <i class="fa-duotone fa-starship-freighter"></i>
-                      <div class="card-info-title">
-                        <h3>Evan Aparri - Dev Ops</h3>
-                        <h4>So good you don't notice, until you do.
-                        </h4>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-            <a id="card5" class="card" href="https://ylu-1258.github.io/YLu-Blog/" target="_blank">
-              <div class="card">
-                <div class="card-content">
-                  <div class="card-image">
-                    <i class="fa-solid fa-rectangle-terminal"></i>
-                  </div>
-                  <div class="card-info-wrapper">
-                    <div class="card-info">
-                      <i class="fa-regular fa-rectangle-terminal"></i>
-                      <div class="card-info-title">
-                        <h3>Alex Lu - Backend Developer</h3>
-                        <h4>Hard carry the whole way through. Resident API expert.</h4>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>          
-          </div>
-    </body>
+    }
+</style>
+
+<h1>About the Creators:</h1>
+<h3>Meet our Group:</h3>
+
+<ul>
+  <li><a href="https://github.com/STG-7">Shaurya Goel - Scrum Master</a></li>
+  <li><a href="https://github.com/YLu-1258">Alex Lu - Backend Developer</a></li>
+  <li><a href="https://github.com/h4seeb-cmd">Haseeb Beg - Frontend Developer</a></li>
+  <li><a href="https://github.com/Tirth-Thakkar">Tirth Thakar - Frontend Developer</a></li>
+  <li><a href="https://github.com/chewyboba10">Evan Aparri - Dev Ops Engineer</a></li>
+</ul>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/MinesweeperFrontEnd/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/MinesweeperFrontEnd/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/MinesweeperFrontEnd/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Winter Themed Minesweeper</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" target="_blank" title="fastai"><svg class="svg-icon grey"><use xlink:href="/MinesweeperFrontEnd/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" target="_blank" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/MinesweeperFrontEnd/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
 </html>
