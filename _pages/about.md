@@ -1,6 +1,5 @@
 ---
 layout: page
-title: About the Creators
 permalink: /about/
 ---
 <style>
@@ -9,6 +8,12 @@ permalink: /about/
         background-size: 400% 400%;
         animation: gradient 15s ease infinite;
         height: 100vh;
+    }
+    h1 {
+      color: #286f8b
+    }
+    h3 {
+      color: #286f8b
     }
     @keyframes gradient {
         0% {
@@ -22,8 +27,8 @@ permalink: /about/
         }
     }
 </style>
-
-Meet our Group:
+<h1>About the Creators:</h1>
+<h3>Meet our Group:</h3>
 
 - [Shaurya Goel - Scrum Master](https://github.com/STG-7)
 - [Alex Lu - Backend Developer](https://github.com/YLu-1258)
