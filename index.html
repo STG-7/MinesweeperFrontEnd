@@ -251,13 +251,13 @@ image: images/logo.png
                 // generate mines
                 let mRow = components.num_of_rows - 1,
                     mCol = components.num_of_cols - 1,
-                    mToLay = components.total;
-                while (mToLay > 0) {
+                    tMines = components.total;
+                while (tMines > 0) {
                     let row = Math.floor(Math.random() * mRow);
                     let col = Math.floor(Math.random() * mCol);
                     if (!components.board[row][col].m) {
                         components.board[row][col].m = true;
-                        mToLay--;
+                        tMines--;
                     }
                 }
                 
