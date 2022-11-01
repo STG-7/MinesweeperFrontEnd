@@ -251,52 +251,48 @@ image: images/logo.png
                 // generate mines
                 let mRow = components.num_of_rows - 1,
                     mCol = components.num_of_cols - 1,
-                    mToLay = components.total;
-                while (mToLay > 0) {
+                    tMines = components.total;
+                while (tMines > 0) {
                     let row = Math.floor(Math.random() * mRow);
                     let col = Math.floor(Math.random() * mCol);
                     if (!components.board[row][col].m) {
                         components.board[row][col].m = true;
-                        mToLay--;
+                        tMines--;
                     }
                 }
                 
-                // (B5) CALCULATE NUMBER OF ADJACENT componentsS FOR EACH CELL
-                // LOOP THROUGH ROW-BY-ROW
+                // Determine the number of adjacent mines next to each cell 
                 for (let row=0; row<components.num_of_rows; row++) {
                     let lastRow = row - 1,
                         nextRow = row + 1;
                     if (nextRow == components.num_of_rows) { nextRow = -1; }
                 
-                    // LOOP THROUGH CELLS OF EACH ROW
+                    // loop each row
                     for (let col=0; col<components.num_of_cols; col++) {
                     let lastCol = col - 1,
                         nextCol = col + 1;
                     if (nextCol == components.num_of_cols) { nextCol = -1; }
                 
-                    // CALCULATE ONLY IF CELL DOES NOT CONTAIN components
+                    // if cell is not a mine
                     if (!components.board[row][col].m) {
-                        // ADD NUMBER OF componentsS IN LAST ROW
+                        // sum mines in last row
                         if (lastRow != -1) {
                         if (lastCol != -1) { if (components.board[lastRow][lastCol].m) { components.board[row][col].a++; } }
                         if (components.board[lastRow][col].m) { components.board[row][col].a++; }
                         if (nextCol != -1) { if (components.board[lastRow][nextCol].m) { components.board[row][col].a++; } }
                         }
                 
-                        // ADD NUMBER OF componentsS IN CURRENT ROW
+                        // sum mines in current row
                         if (lastCol != -1) { if (components.board[row][lastCol].m) { components.board[row][col].a++; } }
                         if (nextCol != -1) { if (components.board[row][nextCol].m) { components.board[row][col].a++; } }
                 
-                        // ADD NUMBER OF componentsS IN NEXT ROW
+                        // sum mines in next row
                         if (nextRow != -1) {
                         if (lastCol != -1) { if (components.board[nextRow][lastCol].m) { components.board[row][col].a++; } }
                         if (components.board[nextRow][col].m) { components.board[row][col].a++; }
                         if (nextCol != -1) { if (components.board[nextRow][nextCol].m) { components.board[row][col].a++; } }
                         }
                     }
-                
-                    // CHEAT - SHOW NUMBER OF ADJACENT componentsS ON BOARD
-                    // if (components.board[row][col].a != 0) { components.board[row][col].c.innerHTML = components.board[row][col].a ; }
                     }
                 }
             },
@@ -336,30 +332,29 @@ image: images/logo.png
                         }, 2);
                     }
                 
-                    // (D3) REVEAL SELECTED CELL + ALL EMPTY ADJACENT CELLS
+                    // reveal cell
                     else {
-                        // (D3A) FLAGS - WHICH CELLS SHOULD WE AUTOMATICALLY REVEAL?
-                        let toReveal = [], // ALL CELLS TO REVEAL
-                            toCheck = [], // ALL CELLS TO CHECK
-                            checked = []; // ALL CELL THAT HAVE ALREADY BEEN CHECKED
+                        
+                        let toReveal = [],
+                            toCheck = [],
+                            checked = [];
                         for (let i=0; i<components.num_of_rows; i++) { checked.push({}); }
                         toCheck.push([row, col]);
                     
-                        // (D3B) LOOP & CHECK - ADD CELLS TO REVEAL
+                        // loop the cells
                         while (toCheck.length>0) {
-                        // CURRENT "CHECK CELL" COORDINATES
+                        // check coordnates of current cells
                         let thisRow = parseInt(toCheck[0][0]),
                             thisCol = parseInt(toCheck[0][1]);
 
-                        // HAS components, ALREADY REVEALED, MARKED - DO NOTHING
+                        // if it's a mine, revealed, or marked, do nothing
                         if (components.board[thisRow][thisCol].m || components.board[thisRow][thisCol].r || components.board[thisRow][thisCol].x) {}
                         else {
-                            // ADD CELL TO REVEAL
+                            // mark cell for revealing
                             if (!checked[thisRow][thisCol]) { toReveal.push([thisRow, thisCol]); }
                     
-                            // CELL DOES NOT HAVE ADJ componentsS - CHECK NEIGHBOURS
+                            // cell does not have adjacent mines
                             if (components.board[thisRow][thisCol].a == 0) {
-                            // PREVIOUS & NEXT CELL COORDINATES
                             let lastRow = thisRow - 1,
                                 nextRow = thisRow + 1,
                                 lastCol = thisCol - 1,
@@ -367,19 +362,17 @@ image: images/logo.png
                             if (nextRow == components.num_of_rows) { nextRow = -1; }
                             if (nextCol == components.num_of_cols) { nextCol = -1; }
                     
-                            // LAST ROW
-                            if (lastRow != -1) {
+                            if (lastRow != -1) { // make sure that it's not out of bounds
                                 if (lastCol != -1 && !checked[lastRow][lastCol]) { toCheck.push([lastRow, lastCol]); }
                                 if (!checked[lastRow][thisCol]) { toCheck.push([lastRow, thisCol]); }
                                 if (nextCol != -1 && !checked[lastRow][nextCol]) { toCheck.push([lastRow, nextCol]); }
                             }
                     
-                            // CURRENT ROW
                             if (lastCol != -1 && !checked[thisRow][lastCol]) { toCheck.push([thisRow, lastCol]); }
                             if (nextCol != -1 && !checked[thisRow][nextCol]) { toCheck.push([thisRow, nextCol]); }
                     
-                            // NEXT ROW
-                            if (nextRow != -1) {
+                            
+                            if (nextRow != -1) {// make sure that it's not out of bounds
                                 if (lastCol != -1 && !checked[nextRow][lastCol]) { toCheck.push([nextRow, lastCol]); }
                                 if (!checked[nextRow][thisCol]) { toCheck.push([nextRow, thisCol]); }
                                 if (nextCol != -1 && !checked[nextRow][nextCol]) { toCheck.push([nextRow, nextCol]); }
@@ -387,12 +380,11 @@ image: images/logo.png
                             }
                         }
                     
-                        // MOVE ON - CHECK NEXT CELL
                         checked[thisRow][thisCol] = true;
                         toCheck.shift();
                         }
                     
-                        // (D3C) AUTOMATICALLY REVEAL CELLS (IF ANY)
+                        // reveal all cells 
                         if (toReveal.length > 0) {
                         for (let cell of toReveal) {
                             let thisRow = parseInt(cell[0]);
@@ -408,7 +400,7 @@ image: images/logo.png
                         }
                     }
                 
-                    // (D3D) NO CELLS LEFT TO OPEN - WIN!
+                    // no remanining grids left, win condition
                     if (components.remaining == components.total) {
                     alert("YOU WIN!");
                     components.reset();
