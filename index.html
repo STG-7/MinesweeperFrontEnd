@@ -97,7 +97,8 @@ image: images/logo.png
     }
     </style>
 
-    <section id="minesweeper" style="display:none;" class="gradient-border">
+    <section id="minesweeper" style="display:none;" class="gradient-border">\
+        <!--
         <script>
             
             <p id="timer"></p>
@@ -124,6 +125,7 @@ image: images/logo.png
               }
             }, 1000);
             </script>
+        -->
         <h2 style="text-align:center;" class="title">MINESWEEPER!</h2>
         <p id="current_usr" style="text-align:center;">Current User: </p> 
         <div id="field"></div> 
@@ -144,7 +146,7 @@ image: images/logo.png
                 <button id ="login_submit" type='button'>SUBMIT/ENVIAR</button>
                 <script>
                     $("#login_submit").click(function() {
-                        let x = GetTime();
+                        //let x = GetTime();
                         let usr = document.getElementById("usr_login").value;
                         let pwd = document.getElementById("pwd_login").value;
                         let auth_url = "https://frost.nighthawkcodescrums.gq/api/auth/" + usr + "/" + pwd + "/verify";
@@ -167,7 +169,7 @@ image: images/logo.png
                                 document.getElementById("login").style.display = "none";
                                 document.getElementById("register").style.display = "none";
                                 document.getElementById("minesweeper").style.display = "block";
-                                document.getElementById("timer").style.display = "block";
+                                //document.getElementById("timer").style.display = "block";
                                 document.getElementById("current_usr").innerHTML = "Current User: <br>" + document.getElementById("usr_login").value;
                             }
                             else {
@@ -451,6 +453,7 @@ image: images/logo.png
     </script>
 
     <section id="timer" style="display:none;" class="timer">
+        <!--
         <script>
             function countdownTimer() {
                 const difference = +new Date(onclick(cell)) - +new Date();
@@ -472,6 +475,7 @@ image: images/logo.png
             countdownTimer();
             setInterval(countdownTimer, 1000);
         </script>
+        -->
     </section>
 
 </body>
