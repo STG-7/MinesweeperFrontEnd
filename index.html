@@ -97,7 +97,7 @@ image: images/logo.png
     }
     </style>
 
-    <section id="minesweeper" style="display:none;" class="gradient-border">\
+    <section id="minesweeper" style="display:none;" class="gradient-border">
         <!--
         <script>
             
@@ -128,6 +128,7 @@ image: images/logo.png
         -->
         <h2 style="text-align:center;" class="title">MINESWEEPER!</h2>
         <p id="current_usr" style="text-align:center;">Current User: </p> 
+        <p id="timer" style="text-align: center;">Time Remaining: <span id="time_remaining">00:00</span>!</p>
         <div id="field"></div> 
     </section>
 
@@ -238,11 +239,13 @@ image: images/logo.png
             remaining : 0,
             display : {1: 'blue', 2: 'green', 3: 'red', 4: 'purple', 5: 'maroon', 6: 'turquoise', 7: 'black', 8: 'grey', "bomb" : '💣', "flag" : "🚩"},
             board : [],
+            rTime: 180,
+            timerStart: true,
             reset : () => {
                 // Reset the gameboard, set number of remaining unclicked mines to the product of rows and columns
                 components.board = [];
                 components.remaining = components.num_of_rows * components.num_of_cols;
-                
+                components.timerStart = true;
                 // Establish the proper width value for the css based on the established colomuns
                 let wrap = document.getElementById("field"),
                     cssWidth = (100 / components.num_of_cols);
@@ -350,6 +353,10 @@ image: images/logo.png
                     // Get cell coordinates
                     let row = cell.dataset.row,
                         col = cell.dataset.col;
+                    if (components.timerStart) {
+                        components.timer();
+                        components.timerStart = false;
+                    }
                     // Do nothing if the cell is marked
                     if (components.board[row][col].x) {
                         return ;
@@ -358,6 +365,7 @@ image: images/logo.png
                     // End game if mine is selected
                     if (!components.board[row][col].x && components.board[row][col].m) {
                         components.revealMines();
+                        components.rTime = 180;
                         setTimeout(() => {
                         alert("You have clicked on a mine!");
                         components.reset();
@@ -434,8 +442,10 @@ image: images/logo.png
                 
                     // No remanining grids left, win condition
                     if (components.remaining == components.total) {
-                    alert("YOU WIN!");
-                    components.reset();
+                        let score = components.rTime;
+                        console.log(score);
+                        alert("YOU WIN!");
+                        components.reset();
                     }
                 }
                 },
@@ -447,8 +457,31 @@ image: images/logo.png
                     }
                 }
             }
-        }
-        };
+        },
+            timer : () => {
+                if (components.timerStart) {
+                    // Set interval is a method used to call a function after every delay, in this case we set a delay for 1 second for each execution.  
+                    timer = setInterval(function () {
+                        m = parseInt(components.rTime / 60, 10)
+                        s = parseInt(components.rTime % 60, 10);
+                        sMin = m < 10 ? "0" + m : m;
+                        sSec = s < 10 ? "0" + s : s;
+                        let watch = document.getElementById("time_remaining");
+                        watch.innerHTML = sMin + ":" + sSec;
+                        if (--components.rTime < 0) {
+                            components.rTime = 300;
+                            components.revealMines();
+                            setTimeout(() => {
+                                alert("You have clicked on a mine!");
+                                components.reset();
+                            }, 2);
+                        }
+                    }, 1000)
+                }
+                
+            }
+    };
+        
         window.addEventListener("DOMContentLoaded", components.reset);
     </script>
 
