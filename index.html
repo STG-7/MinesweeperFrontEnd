@@ -76,7 +76,10 @@ window.onload = wrap_img;
 <!--code for the login and registration forms that take username and password.-->
 <body>
     <style>
-        
+        #timer {
+            background-color: white;
+            color: #07b39b
+        }
         #home div {
             width: 100%
         }
@@ -164,6 +167,32 @@ window.onload = wrap_img;
     </style>
 
     <section id="minesweeper" style="display:none;" class="gradient-border">
+        <script>
+            
+            <p id="timer"></p>
+      
+            var countdown = new Date("x + 00:03:00").getTime();
+            
+            var x = setInterval(function() {
+
+              var now = new Date().getTime();
+            
+              var distance = countDownDate - now;
+            
+              var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+              var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+              var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+              var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+              document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+              + minutes + "m " + seconds + "s ";
+            
+              if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+              }
+            }, 1000);
+            </script>
         <h2 style="text-align:center;" class="title">MINESWEEPER!</h2>
         <p id="current_usr" style="text-align:center;">Current User: </p> 
         <div id="field">
@@ -186,6 +215,7 @@ window.onload = wrap_img;
                 <button id="login_submit" type="button">SUBMIT/ENVIAR</button>
                 <script>
                     $("#login_submit").click(function() {
+                        let x = GetTime();
                         let usr = document.getElementById("usr_login").value;
                         let pwd = document.getElementById("pwd_login").value;
                         let auth_url = "https://frost.nighthawkcodescrums.gq/api/auth/" + usr + "/" + pwd + "/verify";
@@ -208,6 +238,7 @@ window.onload = wrap_img;
                                 document.getElementById("login").style.display = "none";
                                 document.getElementById("register").style.display = "none";
                                 document.getElementById("minesweeper").style.display = "block";
+                                document.getElementById("timer").style.display = "block";
                                 document.getElementById("current_usr").innerHTML = "Current User: <br>" + document.getElementById("usr_login").value;
                             }
                             else {
@@ -489,6 +520,30 @@ window.onload = wrap_img;
         };
         window.addEventListener("DOMContentLoaded", components.reset);
     </script>
+
+    <section id="timer" style="display:none;" class="timer">
+        <script>
+            function countdownTimer() {
+                const difference = +new Date(onclick(cell)) - +new Date();
+                let remaining = "TIME'S UP! *BOOM*";
+
+                if (difference > 0){
+                    const timeUnits = {
+                        minutes: Math.floor((difference / 1000 / 60) % 60),
+                        seconds: Math.floor((difference / 1000) % 60),
+                    };
+                
+                    remaining = Object.keys(timeUnits).map(part => {
+                    if (!timeUnits[part]) return;
+                    return `${timeUnits[part]} ${part}`;
+                    }).join(" ");
+                }
+            document.getElementById("timer").innerHTML = remaining;
+            }
+            countdownTimer();
+            setInterval(countdownTimer, 1000);
+        </script>
+    </section>
 
 </body>
 
