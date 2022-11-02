@@ -178,7 +178,7 @@ permalink: /about/
           };               
         </script>
         <div id="cards">
-            <a id="card1" class="card"  href="https://github.com/h4seeb-cmd" target="_blank">
+            <a id="card1" class="card"  href="https://h4seeb-cmd.github.io/turtle/" target="_blank">
               <div class="card">
                 <div class="card-content">
                   <div class="card-image">
@@ -196,7 +196,7 @@ permalink: /about/
                 </div>
               </div>
             </a>          
-            <a id="card2" class="card" href="https://github.com/Tirth-Thakkar" target="_blank">
+            <a id="card2" class="card" href="https://tirth-thakkar.github.io/APCSP-Blog/" target="_blank">
               <div class="card">
                 <div class="card-content">
                   <div class="card-image">
@@ -215,7 +215,7 @@ permalink: /about/
                 </div>
               </div>
             </a>          
-            <a id="card3" class="card" href="https://github.com/STG-7" target="_blank">
+            <a id="card3" class="card" href="https://stg-7.github.io/FastPagesSTG/" target="_blank">
               <div class="card">
                 <div class="card-content">
                   <div class="card-image">
@@ -233,7 +233,7 @@ permalink: /about/
                 </div>
               </div>
             </a>         
-            <a id="card4" class="card" href="https://github.com/chewyboba10" target="_blank">
+            <a id="card4" class="card" href="https://chewyboba10.github.io/sushi-burrito/" target="_blank">
               <div class="card">
                 <div class="card-content">
                   <div class="card-image">
@@ -252,7 +252,7 @@ permalink: /about/
                 </div>
               </div>
             </a>
-            <a id="card5" class="card" href="https://github.com/YLu-1258" target="_blank">
+            <a id="card5" class="card" href="https://ylu-1258.github.io/YLu-Blog/" target="_blank">
               <div class="card">
                 <div class="card-content">
                   <div class="card-image">
