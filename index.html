@@ -212,7 +212,7 @@ image: images/logo.png
                 components.board = [];
                 components.remaining = components.num_of_rows * components.num_of_cols;
                 
-                // establish the proper width value for the css based on the established colomuns
+                // Establish the proper width value for the css based on the established colomuns
                 let wrap = document.getElementById("field"),
                     cssWidth = (100 / components.num_of_cols);
                     wrap.innerHTML = "";
@@ -231,7 +231,7 @@ image: images/logo.png
                         });
                         console.log("success")
                 
-                        // add to the html
+                        // Add to the html
                         let cell = components.board[row][col].c;
                         cell.classList.add("cell");
                         cell.id = "mine-" + row + "-" + col;
@@ -249,7 +249,7 @@ image: images/logo.png
                     }
                 }
                 
-                // generate mines
+                // Generate mines
                 let mRow = components.num_of_rows - 1,
                     mCol = components.num_of_cols - 1,
                     tMines = components.total;
@@ -274,9 +274,9 @@ image: images/logo.png
                         nextCol = col + 1;
                     if (nextCol == components.num_of_cols) { nextCol = -1; }
                 
-                    // if cell is not a mine
+                    // If cell is not a mine
                     if (!components.board[row][col].m) {
-                        // sum mines in last row
+                        // Sum mines in last row
                         if (lastRow != -1) {
                         if (lastCol != -1) { if (components.board[lastRow][lastCol].m) { components.board[row][col].a++; } }
                         if (components.board[lastRow][col].m) { components.board[row][col].a++; }
@@ -333,7 +333,7 @@ image: images/logo.png
                         }, 2);
                     }
                 
-                    // reveal cell
+                    // Reveal cell
                     else {
                         
                         let toReveal = [],
@@ -342,13 +342,13 @@ image: images/logo.png
                         for (let i=0; i<components.num_of_rows; i++) { checked.push({}); }
                         toCheck.push([row, col]);
                     
-                        // loop the cells
+                        // Loop the cells
                         while (toCheck.length>0) {
-                        // check coordnates of current cells
+                        // Checking coordnates of current cells
                         let thisRow = parseInt(toCheck[0][0]),
                             thisCol = parseInt(toCheck[0][1]);
 
-                        // if it's a mine, revealed, or marked, do nothing
+                        // If it's a mine, revealed, or marked, do nothing 
                         if (components.board[thisRow][thisCol].m || components.board[thisRow][thisCol].r || components.board[thisRow][thisCol].x) {}
                         else {
                             // mark cell for revealing
@@ -385,7 +385,7 @@ image: images/logo.png
                         toCheck.shift();
                         }
                     
-                        // reveal all cells 
+                        // Reveal all cells 
                         if (toReveal.length > 0) {
                         for (let cell of toReveal) {
                             let thisRow = parseInt(cell[0]);
@@ -401,7 +401,7 @@ image: images/logo.png
                         }
                     }
                 
-                    // no remanining grids left, win condition
+                    // No remanining grids left, win condition
                     if (components.remaining == components.total) {
                     alert("YOU WIN!");
                     components.reset();
