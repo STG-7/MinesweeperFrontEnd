@@ -433,7 +433,7 @@ body { background: linear-gradient(-45deg, #bbf0e5, #82b8d1, #84bfbf, #6182e2, #
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; } }
 
-a:hover { color: #286f8b !important; }
+a:hover { color: #286f8b !important; text-decoration: none !important; }
 
 .language-python + .language-plaintext { border-left: 1px solid grey; margin-left: 1rem !important; }
 
