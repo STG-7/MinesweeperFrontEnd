@@ -13,11 +13,11 @@ permalink: /about/
         font-family: "Lucida Console", "Courier New", monospace;
     }
     h1 {
-      color: #286f8b
+      color: #286f8b;
       font-family: "Lucida Console", "Courier New", monospace;
     }
     h3 {
-    font-family: "Lucida Console", "Courier New", monospace;
+        font-family: "Lucida Console", "Courier New", monospace;
     }
     @keyframes gradient {
         0% {
