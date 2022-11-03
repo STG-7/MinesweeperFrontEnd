@@ -175,7 +175,6 @@ window.onload = wrap_img;
             var countdown = new Date("x + 00:03:00").getTime();
             
             var x = setInterval(function() {
-
               var now = new Date().getTime();
             
               var distance = countDownDate - now;
@@ -510,11 +509,11 @@ window.onload = wrap_img;
                     }
                 
                     // No remanining grids left, win condition
-                    if (components.remaining == components.total) {
+                    if (components.remaining == components.total && components.rTime > 0) {
                         let score = components.rTime;
                         console.log(score);
-                        alert("YOU WIN!");
                         components.reset();
+                        components.rTime = 200;
                     }
                 }
                 },
@@ -541,7 +540,7 @@ window.onload = wrap_img;
                             components.rTime = 300;
                             components.revealMines();
                             setTimeout(() => {
-                                alert("You have clicked on a mine!");
+                                alert("💥BOOM!💥 You didn't diffuse the bomb in time!");
                                 components.reset();
                             }, 2);
                         }
@@ -560,7 +559,6 @@ window.onload = wrap_img;
             function countdownTimer() {
                 const difference = +new Date(onclick(cell)) - +new Date();
                 let remaining = "TIME'S UP! *BOOM*";
-
                 if (difference > 0){
                     const timeUnits = {
                         minutes: Math.floor((difference / 1000 / 60) % 60),
