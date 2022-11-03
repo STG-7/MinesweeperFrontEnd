@@ -189,7 +189,7 @@ permalink: /about/
                       <i class="fa-duotone fa-turtle"></i>
                       <div class="card-info-title">
                         <h3>Haseeb Beg - Frontend Developer</h3>
-                        <h4>Haseeb part time Frontend Developer full time gamer.</h4>
+                        <h4>Part time Frontend Developer, full time idiot.</h4>
                       </div>
                     </div>
                   </div>
@@ -207,7 +207,7 @@ permalink: /about/
                       <i class="fa-duotone fa-computer"></i>
                       <div class="card-info-title">
                         <h3>Tirth Thakkar - Frontend Developer</h3>
-                        <h4>I try to help out ... when things work. They never do.
+                        <h4>He tries help out ... when things work. They never do.
                         </h4>
                       </div>
                     </div>
@@ -263,7 +263,7 @@ permalink: /about/
                       <i class="fa-regular fa-rectangle-terminal"></i>
                       <div class="card-info-title">
                         <h3>Alex Lu - Backend Developer</h3>
-                        <h4>Hard carry the whole way through. Resident API expert.</h4>
+                        <h4>Coding god, probably already got an MIT scholarship. Resident API expert.</h4>
                       </div>
                     </div>
                   </div>
