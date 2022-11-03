@@ -282,7 +282,26 @@ search_exclude: true
     </div>
   </a>
 
-  <a id="card6" class="card" href="https://github.com/YLu-1258/fr0st" target="_blank">
+  <a id="card6" class="card" href="https://github.com/STG-7/MinesweeperFrontEnd" target="_blank">
+    <div class="card">
+      <div class="card-content">
+        <div class="card-image">
+          <i class="fa-solid fa-bomb"></i>
+        </div>
+        <div class="card-info-wrapper">
+          <div class="card-info">
+            <i class="fa-solid fa-bomb"></i>
+            <div class="card-info-title">
+              <h3>Frontend</h3>
+              <h4>Frontend - See the behind scenes of what you're looking at right now. </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+
+  <a id="card7" class="card" href="https://github.com/YLu-1258/fr0st" target="_blank">
     <div class="card">
       <div class="card-content">
         <div class="card-image">
@@ -300,6 +319,8 @@ search_exclude: true
       </div>
     </div>
   </a>
+
+
 </div>
     </body>
 </html>
