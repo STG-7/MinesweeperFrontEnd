@@ -2,6 +2,7 @@
 layout: default
 title: About the Creators
 permalink: /about/
+search_exclude: true
 ---
 
 <html>
@@ -9,13 +10,19 @@ permalink: /about/
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE-edge">
         <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/46e3c2907d.js" crossorigin="anonymous"></script>
     </head>
     <style>
+        .wrapper{
+          min-width: 1003px !important;
+          max-width: 1003px !important;
+        }
         #cards {
           display: flex !important;
           flex-wrap: wrap !important;
           gap: 8px!important;  
-          max-width: 916px !important;
+          max-width: 1002px !important;
+          min-width: 1002px !important;
           width: calc(100% - 20px) !important;
         }
         #cards:hover > .card::after {
@@ -135,7 +142,7 @@ permalink: /about/
             width: calc(50% - 4px)  !important;
           }
         }
-        @media(max-width: 500px) {
+        @media(max-width: 1000px) {
           .card {
             height: 180px  !important;
           }
@@ -159,7 +166,7 @@ permalink: /about/
             margin-top: 4px  !important;
           }
         }        
-        @media(max-width: 1000px) {
+        @media(min-width: 320px) {
           .card {
             width: 100%  !important;
           }
@@ -178,98 +185,121 @@ permalink: /about/
           };               
         </script>
         <div id="cards">
-            <a id="card1" class="card"  href="https://h4seeb-cmd.github.io/turtle/" target="_blank">
-              <div class="card">
-                <div class="card-content">
-                  <div class="card-image">
-                    <i class="fa-solid fa-turtle"></i>
-                  </div>
-                  <div class="card-info-wrapper">
-                    <div class="card-info">
-                      <i class="fa-duotone fa-turtle"></i>
-                      <div class="card-info-title">
-                        <h3>Haseeb Beg - Frontend Developer</h3>
-                        <h4>Haseeb part time Frontend Developer full time gamer.</h4>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>          
-            <a id="card2" class="card" href="https://tirth-thakkar.github.io/APCSP-Blog/" target="_blank">
-              <div class="card">
-                <div class="card-content">
-                  <div class="card-image">
-                    <i class="fa-duotone fa-computer"></i>
-                  </div>
-                  <div class="card-info-wrapper">
-                    <div class="card-info">
-                      <i class="fa-duotone fa-computer"></i>
-                      <div class="card-info-title">
-                        <h3>Tirth Thakkar - Frontend Developer</h3>
-                        <h4>I try to help out ... when things work. They never do.
-                        </h4>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>          
-            <a id="card3" class="card" href="https://stg-7.github.io/FastPagesSTG/" target="_blank">
-              <div class="card">
-                <div class="card-content">
-                  <div class="card-image">
-                    <i class="fa-duotone fa-toilet"></i>
-                  </div>
-                  <div class="card-info-wrapper">
-                    <div class="card-info">
-                      <i class="fa-solid fa-toilet-paper-under"></i>
-                      <div class="card-info-title">
-                        <h3>Shaurya Goel - Scrum Master</h3>
-                        <h4>"I'll be back" - Arnold Schwarzenegger</h4>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>         
-            <a id="card4" class="card" href="https://chewyboba10.github.io/sushi-burrito/" target="_blank">
-              <div class="card">
-                <div class="card-content">
-                  <div class="card-image">
-                    <i class="fa-duotone fa-starship-freighter"></i>
-                  </div>
-                  <div class="card-info-wrapper">
-                    <div class="card-info">
-                      <i class="fa-duotone fa-starship-freighter"></i>
-                      <div class="card-info-title">
-                        <h3>Evan Aparri - Dev Ops</h3>
-                        <h4>So good you don't notice, until you do.
-                        </h4>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-            <a id="card5" class="card" href="https://ylu-1258.github.io/YLu-Blog/" target="_blank">
-              <div class="card">
-                <div class="card-content">
-                  <div class="card-image">
-                    <i class="fa-solid fa-rectangle-terminal"></i>
-                  </div>
-                  <div class="card-info-wrapper">
-                    <div class="card-info">
-                      <i class="fa-regular fa-rectangle-terminal"></i>
-                      <div class="card-info-title">
-                        <h3>Alex Lu - Backend Developer</h3>
-                        <h4>Hard carry the whole way through. Resident API expert.</h4>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>          
+
+  <a id="card1" class="card"  href="https://h4seeb-cmd.github.io/turtle/" target="_blank">
+    <div class="card">
+      <div class="card-content">
+        <div class="card-image">
+          <i class="fa-solid fa-land-mine-on"></i>
+        </div>
+        <div class="card-info-wrapper">
+          <div class="card-info">
+            <i class="fa-solid fa-land-mine-on"></i>
+            <div class="card-info-title">
+              <h3>Haseeb Beg - Frontend </h3>
+              <h4>Haseeb part time Frontend Developer full time gamer.</h4>
+            </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </a>
+
+  <a id="card2" class="card" href="https://tirth-thakkar.github.io/APCSP-Blog/" target="_blank">
+    <div class="card">
+      <div class="card-content">
+        <div class="card-image">
+          <i class="fa-solid fa-land-mine-on"></i>
+        </div>
+        <div class="card-info-wrapper">
+          <div class="card-info">
+            <i class="fa-solid fa-land-mine-on"></i>
+            <div class="card-info-title">
+              <h3>Tirth Thakkar - Frontend</h3>
+              <h4>I try to help out ... when things work. They never do.
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+
+  <a id="card3" class="card" href="https://stg-7.github.io/FastPagesSTG/" target="_blank">
+    <div class="card">
+      <div class="card-content">
+        <div class="card-image">
+          <i class="fa-solid fa-land-mine-on"></i>
+        </div>
+        <div class="card-info-wrapper">
+          <div class="card-info">
+            <i class="fa-solid fa-land-mine-on"></i>
+            <div class="card-info-title">
+              <h3>Shaurya Goel - Srum Master</h3>
+              <h4>"I'll be back" - Arnold Schwarzenegger</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+
+  <a id="card4" class="card" href="https://chewyboba10.github.io/sushi-burrito/" target="_blank">
+    <div class="card">
+      <div class="card-content">
+        <div class="card-image">
+          <i class="fa-solid fa-land-mine-on"></i>
+        </div>
+        <div class="card-info-wrapper">
+          <div class="card-info">
+            <i class="fa-solid fa-land-mine-on"></i>
+            <div class="card-info-title">
+              <h3>Evan Appari - Dev Ops</h3>
+              <h4>So good you don't notice, until you do.
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+  <a id="card5" class="card" href="https://ylu-1258.github.io/YLu-Blog/" target="_blank">
+    <div class="card">
+      <div class="card-content">
+        <div class="card-image">
+          <i class="fa-solid fa-land-mine-on"></i>
+        </div>
+        <div class="card-info-wrapper">
+          <div class="card-info">
+            <i class="fa-solid fa-land-mine-on"></i>
+            <div class="card-info-title">
+              <h3>Alex Lu - Backend</h3>
+              <h4>Hard carry the whole way through. Resident API expert.</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+
+  <a id="card6" class="card" href="https://github.com/YLu-1258/fr0st" target="_blank">
+    <div class="card">
+      <div class="card-content">
+        <div class="card-image">
+          <i class="fa-solid fa-land-mine-on"></i>
+        </div>
+        <div class="card-info-wrapper">
+          <div class="card-info">
+            <i class="fa-solid fa-land-mine-on"></i>
+            <div class="card-info-title">
+              <h3>Backend</h3>
+              <h4>Pop open the hood and check out the back. The backend to our amazing game.</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
     </body>
 </html>
