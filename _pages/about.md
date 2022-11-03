@@ -190,11 +190,11 @@ search_exclude: true
     <div class="card">
       <div class="card-content">
         <div class="card-image">
-          <i class="fa-solid fa-land-mine-on"></i>
+          <i class="fa-brands fa-stack-overflow"></i>
         </div>
         <div class="card-info-wrapper">
           <div class="card-info">
-            <i class="fa-solid fa-land-mine-on"></i>
+            <i class="fa-brands fa-stack-overflow"></i>
             <div class="card-info-title">
               <h3>Haseeb Beg - Frontend </h3>
               <h4>Haseeb part time Frontend Developer full time gamer.</h4>
@@ -209,11 +209,11 @@ search_exclude: true
     <div class="card">
       <div class="card-content">
         <div class="card-image">
-          <i class="fa-solid fa-land-mine-on"></i>
+          <i class="fa-solid fa-laptop-code"></i>
         </div>
         <div class="card-info-wrapper">
           <div class="card-info">
-            <i class="fa-solid fa-land-mine-on"></i>
+            <i class="fa-solid fa-dumpster-fire"></i>
             <div class="card-info-title">
               <h3>Tirth Thakkar - Frontend</h3>
               <h4>I try to help out ... when things work. They never do.
@@ -229,11 +229,11 @@ search_exclude: true
     <div class="card">
       <div class="card-content">
         <div class="card-image">
-          <i class="fa-solid fa-land-mine-on"></i>
+          <i class="fa-solid fa-toilet"></i>
         </div>
         <div class="card-info-wrapper">
           <div class="card-info">
-            <i class="fa-solid fa-land-mine-on"></i>
+            <i class="fa-solid fa-toilet-paper"></i>
             <div class="card-info-title">
               <h3>Shaurya Goel - Srum Master</h3>
               <h4>"I'll be back" - Arnold Schwarzenegger</h4>
@@ -248,11 +248,11 @@ search_exclude: true
     <div class="card">
       <div class="card-content">
         <div class="card-image">
-          <i class="fa-solid fa-land-mine-on"></i>
+          <i class="fa-solid fa-server"></i>
         </div>
         <div class="card-info-wrapper">
           <div class="card-info">
-            <i class="fa-solid fa-land-mine-on"></i>
+            <i class="fa-solid fa-server"></i>
             <div class="card-info-title">
               <h3>Evan Appari - Dev Ops</h3>
               <h4>So good you don't notice, until you do.
@@ -267,11 +267,11 @@ search_exclude: true
     <div class="card">
       <div class="card-content">
         <div class="card-image">
-          <i class="fa-solid fa-land-mine-on"></i>
+          <i class="fa-solid fa-robot"></i>
         </div>
         <div class="card-info-wrapper">
           <div class="card-info">
-            <i class="fa-solid fa-land-mine-on"></i>
+            <i class="fa-solid fa-robot"></i>
             <div class="card-info-title">
               <h3>Alex Lu - Backend</h3>
               <h4>Hard carry the whole way through. Resident API expert.</h4>
