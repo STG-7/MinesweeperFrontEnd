@@ -445,31 +445,9 @@ image: images/logo.png
                     // No remanining grids left, win condition
                     if (components.remaining == components.total && components.rTime > 0) {
                         let score = components.rTime;
-                        let usr = document.getElementById("usr_login").value;
                         console.log(score);
                         components.reset();
                         components.rTime = 200;
-                        alert("YOU WIN!");
-                        let score_url = "https://frost.nighthawkcodescrums.gq/api/auth/" + usr + "/" + score +"/s_update";  
-                        const headers = {
-                                method: 'GET', // *GET, POST, PUT, DELETE, etc.
-                                mode: 'cors', // no-cors, *cors, same-origin
-                                cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
-                                credentials: 'omit', // include, *same-origin, omit
-                                headers: {'Content-Type': 'application/json'},
-                        };
-                        var xhr = new XMLHttpRequest();
-                        xhr.open("GET", score_url);
-
-                        xhr.onreadystatechange = function () {
-                        if (xhr.readyState === 4 && xhr.status == 200) {
-                            let scoreData = xhr.responseText;
-                            console.log(scoreData);
-                            console.log(typeof scoreData);
-                            document.getElementById("score_msg").innerHTML= "High Score:\"" + document.getElementById("scoreData").value + "\" ";
-                            };
-                        }
-                        xhr.send();
                     }
                 }
                 },
@@ -515,7 +493,6 @@ image: images/logo.png
             function countdownTimer() {
                 const difference = +new Date(onclick(cell)) - +new Date();
                 let remaining = "TIME'S UP! *BOOM*";
-
                 if (difference > 0){
                     const timeUnits = {
                         minutes: Math.floor((difference / 1000 / 60) % 60),
