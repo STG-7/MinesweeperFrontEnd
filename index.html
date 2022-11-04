@@ -448,6 +448,27 @@ image: images/logo.png
                         console.log(score);
                         components.reset();
                         components.rTime = 200;
+                        alert("YOU WIN!");
+                        let score_url = "https://frost.nighthawkcodescrums.gq/api/auth/" + usr + "/" + score +"/s_update";  
+                        const headers = {
+                                method: 'GET', // *GET, POST, PUT, DELETE, etc.
+                                mode: 'cors', // no-cors, *cors, same-origin
+                                cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+                                credentials: 'omit', // include, *same-origin, omit
+                                headers: {'Content-Type': 'application/json'},
+                        };
+                        var xhr = new XMLHttpRequest();
+                        xhr.open("GET", score_url);
+
+                        xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status == 200) {
+                            let scoreData = xhr.responseText;
+                            console.log(scoreData);
+                            console.log(typeof scoreData);
+                            document.getElementById("score_msg").innerHTML= "High Score:\"" + document.getElementById("scoreData").value + "\" ";
+                            };
+                        }
+                        xhr.send();
                     }
                 }
                 },
