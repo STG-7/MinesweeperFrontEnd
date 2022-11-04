@@ -540,7 +540,7 @@ window.onload = wrap_img;
                         let watch = document.getElementById("time_remaining");
                         watch.innerHTML = sMin + ":" + sSec;
                         if (--components.rTime < 0) {
-                            components.rTime = 300;
+                            components.rTime = 180;
                             components.revealMines();
                             setTimeout(() => {
                                 alert("💥BOOM!💥 You didn't diffuse the bomb in time!");
