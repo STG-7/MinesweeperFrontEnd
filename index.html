@@ -302,6 +302,9 @@ window.onload = wrap_img;
         </section>
     </section>
     <script>
+       
+       // Minesweeper Game
+       // Here wer are settting up the board by using a components Dictionary
         var components = {
             num_of_rows : 10,
             num_of_cols : 10,
@@ -316,7 +319,7 @@ window.onload = wrap_img;
                 components.board = [];
                 components.remaining = components.num_of_rows * components.num_of_cols;
                 components.timerStart = true;
-                // Establish the proper width value for the css based on the established colomuns
+                // Establish the proper width value for the css based on the established colomuns using let keyword
                 let wrap = document.getElementById("field"),
                     cssWidth = (100 / components.num_of_cols);
                     wrap.innerHTML = "";
@@ -442,7 +445,7 @@ window.onload = wrap_img;
                         }, 2);
                     }
                 
-                    // Reveal cell
+                    // Reveal cell using for loop
                     else {
                         
                         let toReveal = [],
