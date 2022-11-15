@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>https://stg-7.github.io/MinesweeperFrontEnd/frontend/binary</loc>
+<lastmod>2022-07-07T00:00:00-05:00</lastmod>
+</url>
+<url>
 <loc>https://stg-7.github.io/MinesweeperFrontEnd/play/2022/10/24/minesweeper.html</loc>
 <lastmod>2022-10-24T00:00:00-05:00</lastmod>
 </url>
@@ -12,6 +16,6 @@
 </url>
 <url>
 <loc>https://stg-7.github.io/MinesweeperFrontEnd/_pages/about.html</loc>
-<lastmod>2022-11-04T15:50:18-05:00</lastmod>
+<lastmod>2022-11-15T16:24:25-06:00</lastmod>
 </url>
 </urlset>
