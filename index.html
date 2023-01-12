@@ -66,45 +66,546 @@ window.onload = wrap_img;
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/MinesweeperFrontEnd/_pages/2023-01-07-OK.html">Submission 1 and 2 Review</a><a class="page-link" href="/MinesweeperFrontEnd/about/">About the Creators</a></div>
+        <div class="trigger"><a class="page-link" href="/MinesweeperFrontEnd/about/">About the Creators</a></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home"><p>This is the fastpages site of Shaurya Goel. Check out the <a href="about">About Me</a> page to learn more about me.</p>
+        <div class="home"><!--for tomorrow: link timer to xml-->
 
-<p><a href="https://github.com/users/STG-7/projects/1/views/1">Project Plans and Scrum Board</a></p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
-<p>Here are the tools I have used so far:</p>
-<table>
-    <tr>
-        <td><a href="https://ubuntu.com/">Ubuntu</a></td>
-        <td><img src="https://assets.ubuntu.com/v1/57a889f6-ubuntu-logo112.png" width="250" alt="Ubuntu" /></td>
-    </tr>
-    <tr>
-        <td><a href="https://docs.microsoft.com/en-us/windows/wsl/">WSL</a></td>
-        <td><img src="https://www.bleepstatic.com/content/hl-images/2019/02/18/Windows_WSL.jpg" width="250" alt="WSL" /></td>
-    </tr>
-    <tr>
-        <td><a href="https://www.python.org/">Python</a></td>
-        <td><img src="https://www.pngall.com/wp-content/uploads/5/Python-PNG-HD-Image.png" width="250" alt="Python" />
-        </td>
-    </tr>
-    <tr>
-        <td><a href="https://github.com/">GitHub</a></td>
-        <td><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="250" alt="GitHub" /></td>
-    </tr>
-    <tr>
-        <td><a href="https://jupyter.org/">Jupyter</a></td>
-        <td><img src="https://jupyter.org/assets/homepage/main-logo.svg" width="250" alt="Jypyter" /></td>
-    </tr>
-    <tr>
-        <td><a href="https://jekyllrb.com/">Jekyll</a></td>
-        <td><img src="https://jekyllrb.com/img/logo-2x.png" width="250" alt="Jekyll" /></td>
-    </tr>
-</table>
+<!--code for the login and registration forms that take username and password.-->
+<body>
+    <style>
+        #timer {
+            background-color: white;
+            color: #07b39b
+        }
+        #home div {
+            width: 100%
+        }
+        #field {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 30px;
+        }
+        #title h2 {
+            font-weight:800;
+            font-size: large;
+        }
+        #field .cell {
+            background-color: rgb(136, 233, 255);
+            box-sizing: border-box;
+            border-radius: 7px;
+            border: 2px solid rgb(77, 65, 255);
+            font-size: 40px;
+            text-align: center;
+            cursor: pointer;
+        }
+        #minesweeper {
+            background-color: white;
+            border-radius: 15px;
+            border: 5px solid transparent;
+            padding: 70px;
+        }
+        .gradient-border {
+            --borderWidth: 10px;
+            background: #1D1F20;
+            position: relative;
+            border-radius: var(--borderWidth);
+        }
+        .gradient-border:after {
+            content: '';
+            position: absolute;
+            top: calc(-1 * var(--borderWidth));
+            left: calc(-1 * var(--borderWidth));
+            height: calc(100% + var(--borderWidth) * 2);
+            width: calc(100% + var(--borderWidth) * 2);
+            background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+            border-radius: calc(2 * var(--borderWidth));
+            z-index: -1;
+            animation: animatedgradient 3s ease alternate infinite;
+            background-size: 300% 300%;
+        }
+        @keyframes animatedgradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        #login {
+            background: rgb(130, 196, 210);
+            border-radius: 18px;
+            margin-top: 5%;
+            margin-bottom: 5%;
+            margin-left: 15%;
+            margin-right: 15%;
+        }
+        #register {
+            background: rgb(130, 196, 210);
+            border-radius: 18px;
+            margin-top: 5%;
+            margin-bottom: 5%;
+            margin-left: 15%;
+            margin-right: 15%;
+        }
+        #login_invalid p {
+            color: red;
+        }
+        form{
+            margin-top: 2em;
+            margin-bottom: 2em;
+            margin-left: auto;
+            margin-right: auto;
+            width: 10em;
+            font-family: "Monaco", "Courier New";
+    }
+    </style>
 
-<h1 id="posts">Posts</h1>
+    <section id="minesweeper" style="display:none;" class="gradient-border">
+        <!--
+        <script>
+            
+            <p id="timer"></p>
+      
+            var countdown = new Date("x + 00:03:00").getTime();
+            
+            var x = setInterval(function() {
+              var now = new Date().getTime();
+            
+              var distance = countDownDate - now;
+            
+              var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+              var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+              var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+              var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+              document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+              + minutes + "m " + seconds + "s ";
+            
+              if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+              }
+            }, 1000);
+            </script>
+        -->
+        <h2 style="text-align:center;" class="title">MINESWEEPER!</h2>
+        <p id="current_usr" style="text-align:center;">Current User: </p> 
+        <p id="timer" style="text-align: center;">Time Remaining: <span id="time_remaining">00:00</span>!</p>
+        <div id="field"></div> 
+    </section>
+
+    <section>
+        <section id="login" style="display:block;" class="gradient-border child">
+        <!-- Login form for Minesweeper game, set display to false after successful login-->
+            <form>
+                <br />
+                <h2>Login</h2>
+                <label for="user">Username / Nombre de Usario:</label><br />
+                <input type="text" id="usr_login" name="user" value="" /><br />
+                <label for="pass">Password / Clave:</label><br />
+                <input type="password" id="pwd_login" name="pass" value="" /><br /><br />
+                <p id="login_invalid"> </p>
+                <!--use a button instead of input-->
+                <button id="login_submit" type="button">SUBMIT/ENVIAR</button>
+                <script>
+                    $("#login_submit").click(function() {
+                        //let x = GetTime();
+                        let usr = document.getElementById("usr_login").value;
+                        let pwd = document.getElementById("pwd_login").value;
+                        let auth_url = "https://frost.nighthawkcodescrums.gq/api/auth/" + usr + "/" + pwd + "/verify";
+                        const headers = {
+                                method: 'GET', // *GET, POST, PUT, DELETE, etc.
+                                mode: 'cors', // no-cors, *cors, same-origin
+                                cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+                                credentials: 'omit', // include, *same-origin, omit
+                                headers: {'Content-Type': 'application/json'},
+                        };
+                        var xhr = new XMLHttpRequest();
+                        xhr.open("GET", auth_url);
+
+                        xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status == 200) {
+                            let data = xhr.responseText;
+                            console.log(data);
+                            console.log(typeof data);
+                            if (data == "true\n") {
+                                document.getElementById("login").style.display = "none";
+                                document.getElementById("register").style.display = "none";
+                                document.getElementById("minesweeper").style.display = "block";
+                                //document.getElementById("timer").style.display = "block";
+                                document.getElementById("current_usr").innerHTML = "Current User: <br>" + document.getElementById("usr_login").value;
+                            }
+                            else {
+                                document.getElementById("login_invalid").style.color = "red";
+                                document.getElementById("login_invalid").style.fontWeight = 1000    ;
+                                document.getElementById("login_invalid").innerHTML= "Login Credentials Incorrect, please try again";
+                            };
+                        }};
+                        xhr.send();
+                    });
+                </script>
+                
+            </form>
+            <br />
+        </section>
+
+        <section id="register" style="display:block;" class="gradient-border child">
+        <!-- Registration form for Minesweeper game, set display to false after successful login-->
+            <form method="POST">
+                <br />
+                <h2>Register</h2>
+                <label for="user">Username / Nombre de Usario:</label><br />
+                <input type="text" id="rg_usr" name="user" value="" /><br />
+                <label for="pass">Password / Clave:</label><br />
+                <input type="password" id="rg_pwd" name="pass" value="" /><br /><br />
+                <p id="reg_message"> </p>
+                <button id="registration_submit" type="button">SUBMIT/ENVIAR</button>
+                <script>
+                    $("#registration_submit").click(function() {
+                        let usr = document.getElementById("rg_usr").value;
+                        let pwd = document.getElementById("rg_pwd").value;
+                        let auth_url = "https://frost.nighthawkcodescrums.gq/api/auth/" + usr + "/" + pwd + "/register";
+                        const headers = {
+                                method: 'GET', // *GET, POST, PUT, DELETE, etc.
+                                mode: 'cors', // no-cors, *cors, same-origin
+                                cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+                                credentials: 'omit', // include, *same-origin, omit
+                                headers: {'Content-Type': 'application/json'},
+                        };
+                        var xhr = new XMLHttpRequest();
+                        xhr.open("GET", auth_url);
+
+                        xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status == 200) {
+                            let data = xhr.responseText;
+                            console.log(data);
+                            console.log(typeof data);
+                            document.getElementById("reg_message").style.color = "green";
+                            document.getElementById("reg_message").style.fontWeight = 1000    ;
+                            document.getElementById("reg_message").innerHTML= "User \"" + document.getElementById("rg_usr").value + "\" has been created with the provided credentials";
+                            };
+                        }
+                        xhr.send();
+                        });
+                </script>
+            </form>
+            <br />
+
+        </section>
+    </section>
+    <script>
+       
+       // Minesweeper Game
+       // Here wer are settting up the board by using a components Dictionary
+        var components = {
+            num_of_rows : 10,
+            num_of_cols : 10,
+            total : 15,
+            remaining : 0,
+            display : {1: 'blue', 2: 'green', 3: 'red', 4: 'purple', 5: 'maroon', 6: 'turquoise', 7: 'black', 8: 'grey', "bomb" : '💣', "flag" : "🚩"},
+            board : [],
+            rTime: 180,
+            timerStart: true,
+            reset : () => {
+                // Reset the gameboard, set number of remaining unclicked mines to the product of rows and columns
+                components.board = [];
+                components.remaining = components.num_of_rows * components.num_of_cols;
+                components.timerStart = true;
+                // Establish the proper width value for the css based on the established colomuns using let keyword
+                let wrap = document.getElementById("field"),
+                    cssWidth = (100 / components.num_of_cols);
+                    wrap.innerHTML = "";
+                
+                // Generate board by looping through rows and coloumns
+                for (let row=0; row<components.num_of_rows; row++) {
+                    components.board.push([]); 
+                    for (let col=0; col<components.num_of_cols; col++) {
+                        // add the cells to the board
+                        components.board[row].push({ 
+                            r : false, // revealed
+                            x : false, // marked
+                            m : false, // mine
+                            a : 0, // adjacent
+                            c : document.createElement("div")
+                        });
+                        console.log("success")
+                
+                        // Add to the html
+                        let cell = components.board[row][col].c;
+                        cell.classList.add("cell");
+                        cell.id = "mine-" + row + "-" + col;
+                        cell.dataset.row = row;
+                        cell.dataset.col = col;
+                        cell.onclick = () => { components.open(cell); };
+                        cell.oncontextmenu = (e) => {
+                            e.preventDefault();
+                            components.mark(cell);
+                        };
+                        cell.style.width = cssWidth + "%";
+                        cell.style.height = cssWidth + "%";
+                        cell.innerHTML = "&nbsp;";
+                        wrap.appendChild(cell);
+                    }
+                }
+                
+                // Generate mines
+                let mRow = components.num_of_rows - 1,
+                    mCol = components.num_of_cols - 1,
+                    tMines = components.total;
+                while (tMines > 0) {
+                    let row = Math.floor(Math.random() * mRow);
+                    let col = Math.floor(Math.random() * mCol);
+                    if (!components.board[row][col].m) {
+                        components.board[row][col].m = true;
+                        tMines--;
+                    }
+                }
+                
+                // Determine the number of adjacent mines next to each cell 
+                for (let row=0; row<components.num_of_rows; row++) {
+                    let lastRow = row - 1,
+                        nextRow = row + 1;
+                    if (nextRow == components.num_of_rows) { nextRow = -1; }
+                
+                    // loop each row
+                    for (let col=0; col<components.num_of_cols; col++) {
+                    let lastCol = col - 1,
+                        nextCol = col + 1;
+                    if (nextCol == components.num_of_cols) { nextCol = -1; }
+                
+                    // If cell is not a mine
+                    if (!components.board[row][col].m) {
+                        // Sum mines in last row
+                        if (lastRow != -1) {
+                        if (lastCol != -1) { if (components.board[lastRow][lastCol].m) { components.board[row][col].a++; } }
+                        if (components.board[lastRow][col].m) { components.board[row][col].a++; }
+                        if (nextCol != -1) { if (components.board[lastRow][nextCol].m) { components.board[row][col].a++; } }
+                        }
+                
+                        // sum mines in current row
+                        if (lastCol != -1) { if (components.board[row][lastCol].m) { components.board[row][col].a++; } }
+                        if (nextCol != -1) { if (components.board[row][nextCol].m) { components.board[row][col].a++; } }
+                
+                        // sum mines in next row
+                        if (nextRow != -1) {
+                        if (lastCol != -1) { if (components.board[nextRow][lastCol].m) { components.board[row][col].a++; } }
+                        if (components.board[nextRow][col].m) { components.board[row][col].a++; }
+                        if (nextCol != -1) { if (components.board[nextRow][nextCol].m) { components.board[row][col].a++; } }
+                        }
+                    }
+                    }
+                }
+            },
+            mark : (cell) => {
+                // (C1) GET COORDS OF SELECTED CELL
+                let row = cell.dataset.row,
+                    col = cell.dataset.col;
+
+                // (C2) MARK/UNMARK ONLY IF CELL IS STILL HIDDEN
+                if (!components.board[row][col].r) {
+                    if (components.board[row][col].x) {
+                        components.board[row][col].c.innerHTML = "&nbsp;";
+                        components.board[row][col].x = !components.board[row][col].x;
+                    }
+                    else {
+                        components.board[row][col].c.innerHTML = "🚩";
+                        components.board[row][col].x = !components.board[row][col].x;
+                    }
+                    //
+                }
+            },
+            open : (cell) => {
+                    // Get cell coordinates
+                    let row = cell.dataset.row,
+                        col = cell.dataset.col;
+                    if (components.timerStart) {
+                        components.timer();
+                        components.timerStart = false;
+                    }
+                    // Do nothing if the cell is marked
+                    if (components.board[row][col].x) {
+                        return ;
+                    }
+
+                    // End game if mine is selected
+                    if (!components.board[row][col].x && components.board[row][col].m) {
+                        components.revealMines();
+                        components.rTime = 180;
+                        setTimeout(() => {
+                        alert("You have clicked on a mine!");
+                        components.reset();
+                        }, 2);
+                    }
+                
+                    // Reveal cell using for loop
+                    else {
+                        
+                        let toReveal = [],
+                            toCheck = [],
+                            checked = [];
+                        for (let i=0; i<components.num_of_rows; i++) { checked.push({}); }
+                        toCheck.push([row, col]);
+                    
+                        // Loop the cells
+                        while (toCheck.length>0) {
+                        // Checking coordnates of current cells
+                        let thisRow = parseInt(toCheck[0][0]),
+                            thisCol = parseInt(toCheck[0][1]);
+
+                        // If it's a mine, revealed, or marked, do nothing 
+                        if (components.board[thisRow][thisCol].m || components.board[thisRow][thisCol].r || components.board[thisRow][thisCol].x) {}
+                        else {
+                            // mark cell for revealing
+                            if (!checked[thisRow][thisCol]) { toReveal.push([thisRow, thisCol]); }
+                    
+                            // cell does not have adjacent mines
+                            if (components.board[thisRow][thisCol].a == 0) {
+                            let lastRow = thisRow - 1,
+                                nextRow = thisRow + 1,
+                                lastCol = thisCol - 1,
+                                nextCol = thisCol + 1;
+                            if (nextRow == components.num_of_rows) { nextRow = -1; }
+                            if (nextCol == components.num_of_cols) { nextCol = -1; }
+                    
+                            if (lastRow != -1) { // make sure that it's not out of bounds
+                                if (lastCol != -1 && !checked[lastRow][lastCol]) { toCheck.push([lastRow, lastCol]); }
+                                if (!checked[lastRow][thisCol]) { toCheck.push([lastRow, thisCol]); }
+                                if (nextCol != -1 && !checked[lastRow][nextCol]) { toCheck.push([lastRow, nextCol]); }
+                            }
+                    
+                            if (lastCol != -1 && !checked[thisRow][lastCol]) { toCheck.push([thisRow, lastCol]); }
+                            if (nextCol != -1 && !checked[thisRow][nextCol]) { toCheck.push([thisRow, nextCol]); }
+                    
+                            
+                            if (nextRow != -1) {// make sure that it's not out of bounds
+                                if (lastCol != -1 && !checked[nextRow][lastCol]) { toCheck.push([nextRow, lastCol]); }
+                                if (!checked[nextRow][thisCol]) { toCheck.push([nextRow, thisCol]); }
+                                if (nextCol != -1 && !checked[nextRow][nextCol]) { toCheck.push([nextRow, nextCol]); }
+                            }
+                            }
+                        }
+                    
+                        checked[thisRow][thisCol] = true;
+                        toCheck.shift();
+                        }
+                    
+                        // Reveal all cells 
+                        if (toReveal.length > 0) {
+                        for (let cell of toReveal) {
+                            let thisRow = parseInt(cell[0]);
+                            let thisCol = parseInt(cell[1]);
+                            components.board[thisRow][thisCol].r = true;
+                            if (components.board[thisRow][thisCol].a != 0) { 
+                            components.board[thisRow][thisCol].c.innerHTML = components.board[thisRow][thisCol].a;
+                            components.board[thisRow][thisCol].c.style.color = components.display[components.board[thisRow][thisCol].a];
+                            }
+                            components.board[thisRow][thisCol].c.classList.add("reveal");
+                            components.board[thisRow][thisCol].c.style.backgroundColor = "rgba(12, 177, 214,.7)";
+                            components.remaining = components.remaining - 1;
+                        }
+                    }
+                
+                    // No remanining grids left, win condition
+                    if (components.remaining == components.total && components.rTime > 0) {
+                        let score = components.rTime;
+                        console.log(score);
+                        alert("YOU WON!!!🏆🏆🏆🏆🏆🏆")
+                        components.reset();
+                        components.rTime = 200;
+                        alert("YOU WIN!");
+                        let score_url = "https://frost.nighthawkcodescrums.gq/api/auth/" + usr + "/" + score +"/s_update";  
+                        const headers = {
+                                method: 'GET', // *GET, POST, PUT, DELETE, etc.
+                                mode: 'cors', // no-cors, *cors, same-origin
+                                cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+                                credentials: 'omit', // include, *same-origin, omit
+                                headers: {'Content-Type': 'application/json'},
+                        };
+                        var xhr = new XMLHttpRequest();
+                        xhr.open("GET", score_url);
+
+                        xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status == 200) {
+                            let scoreData = xhr.responseText;
+                            console.log(scoreData);
+                            console.log(typeof scoreData);
+                            document.getElementById("score_msg").innerHTML= "High Score:\"" + document.getElementById("scoreData").value + "\" ";
+                            };
+                        }
+                        xhr.send();
+                    }
+                }
+                },
+            revealMines : () => {
+            for (let row=0; row<components.num_of_rows; row++) {
+                for (let col=0; col<components.num_of_cols; col++) {
+                    if (components.board[row][col].m) {
+                        components.board[row][col].c.innerHTML = components.display["bomb"];
+                    }
+                }
+            }
+        },
+            timer : () => {
+                if (components.timerStart) {
+                    // Set interval is a method used to call a function after every delay, in this case we set a delay for 1 second for each execution.  
+                    timer = setInterval(function () {
+                        m = parseInt(components.rTime / 60, 10)
+                        s = parseInt(components.rTime % 60, 10);
+                        sMin = m < 10 ? "0" + m : m;
+                        sSec = s < 10 ? "0" + s : s;
+                        let watch = document.getElementById("time_remaining");
+                        watch.innerHTML = sMin + ":" + sSec;
+                        if (--components.rTime < 0) {
+                            components.rTime = 180;
+                            components.revealMines();
+                            setTimeout(() => {
+                                alert("💥BOOM!💥 You didn't diffuse the bomb in time!");
+                                components.reset();
+                            }, 2);
+                        }
+                    }, 1000)
+                }
+                
+            }
+    };
+        
+        window.addEventListener("DOMContentLoaded", components.reset);
+    </script>
+
+    <section id="timer" style="display:none;" class="timer">
+        <!--
+        <script>
+            function countdownTimer() {
+                const difference = +new Date(onclick(cell)) - +new Date();
+                let remaining = "TIME'S UP! *BOOM*";
+                if (difference > 0){
+                    const timeUnits = {
+                        minutes: Math.floor((difference / 1000 / 60) % 60),
+                        seconds: Math.floor((difference / 1000) % 60),
+                    };
+                
+                    remaining = Object.keys(timeUnits).map(part => {
+                    if (!timeUnits[part]) return;
+                    return `${timeUnits[part]} ${part}`;
+                    }).join(" ");
+                }
+            document.getElementById("timer").innerHTML = remaining;
+            }
+            countdownTimer();
+            setInterval(countdownTimer, 1000);
+        </script>
+        -->
+    </section>
+
+</body>
 
 
 
